@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sipariş Yönetimi - Admin Paneli</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Özel CSS -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="admin-panel.html">
+          <img src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-smartphone-shop-sale-logo-design-png-image_5069958.jpg" alt="Logo" height="60">
+          <span class="ms-2">Admin Paneli</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="admin-panel.html">Gösterge Paneli</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-products.html">Ürün Yönetimi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="admin-orders.html">Sipariş Yönetimi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-users.html">Kullanıcı Yönetimi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-reports.html">Raporlar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-settings.html">Ayarlar</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <span class="text-white me-3">Admin Kullanıcı</span>
+            <div class="dropdown">
+              <button class="btn btn-outline-light dropdown-toggle" type="button" id="adminDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user-shield me-1"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
+                <li><a class="dropdown-item" href="admin-profile.html"><i class="fas fa-user-cog me-2"></i>Profil</a></li>
+                <li><a class="dropdown-item" href="admin-settings.html"><i class="fas fa-cogs me-2"></i>Ayarlar</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="index.html"><i class="fas fa-sign-out-alt me-2"></i>Çıkış</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container-fluid py-4">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-2 mb-4">
+        <div class="list-group shadow">
+          <a href="admin-panel.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-tachometer-alt me-2"></i> Gösterge Paneli
+          </a>
+          <a href="admin-products.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-mobile-alt me-2"></i> Ürün Yönetimi
+          </a>
+          <a href="admin-orders.html" class="list-group-item list-group-item-action active">
+            <i class="fas fa-shopping-cart me-2"></i> Sipariş Yönetimi
+          </a>
+          <a href="admin-users.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-users me-2"></i> Kullanıcı Yönetimi
+          </a>
+          <a href="admin-reports.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-chart-line me-2"></i> Raporlar
+          </a>
+          <a href="admin-settings.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-cogs me-2"></i> Ayarlar
+          </a>
+          <a href="admin-logs.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-history me-2"></i> Sistem Logları
+          </a>
+          <a href="admin-api.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-plug me-2"></i> API Yönetimi
+          </a>
+          <a href="admin-backup.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-database me-2"></i> Yedekleme
+          </a>
+        </div>
+
+        <!-- Hızlı Filtreler -->
+        <div class="card mt-4">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Hızlı Filtreler</h5>
+          </div>
+          <div class="card-body">
+            <div class="list-group list-group-flush">
+              <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                Bekleyen Siparişler
+                <span class="badge bg-warning text-dark rounded-pill">24</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                Bugünkü Siparişler
+                <span class="badge bg-info rounded-pill">12</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                İptal Talebi
+                <span class="badge bg-danger rounded-pill">3</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                İade Talebi
+                <span class="badge bg-secondary rounded-pill">5</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orders Content -->
+      <div class="col-lg-10">
+        <h2 class="mb-4">Sipariş Yönetimi</h2>
+        
+        <!-- Filters -->
+        <div class="card mb-4">
+          <div class="card-header bg-white py-3">
+            <h5 class="mb-0">Sipariş Filtrele</h5>
+          </div>
+          <div class="card-body">
+            <form id="orderFilterForm">
+              <div class="row g-3">
+                <div class="col-md-2">
+                  <label for="orderNumber" class="form-label">Sipariş Numarası</label>
+                  <input type="text" class="form-control" id="orderNumber" placeholder="Ör. 87654321">
+                </div>
+                <div class="col-md-2">
+                  <label for="orderStatus" class="form-label">Sipariş Durumu</label>
+                  <select class="form-select" id="orderStatus">
+                    <option value="">Tümü</option>
+                    <option value="pending">Beklemede</option>
+                    <option value="preparing">Hazırlanıyor</option>
+                    <option value="shipped">Kargoda</option>
+                    <option value="delivered">Teslim Edildi</option>
+                    <option value="cancelled">İptal Edildi</option>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <label for="dateRange" class="form-label">Tarih Aralığı</label>
+                  <select class="form-select" id="dateRange">
+                    <option value="today">Bugün</option>
+                    <option value="yesterday">Dün</option>
+                    <option value="last7days">Son 7 Gün</option>
+                    <option value="last30days">Son 30 Gün</option>
+                    <option value="custom">Özel Aralık</option>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <label for="minAmount" class="form-label">Min. Tutar (₺)</label>
+                  <input type="number" class="form-control" id="minAmount" placeholder="Min">
+                </div>
+                <div class="col-md-2">
+                  <label for="maxAmount" class="form-label">Max. Tutar (₺)</label>
+                  <input type="number" class="form-control" id="maxAmount" placeholder="Max">
+                </div>
+                <div class="col-md-2">
+                  <label for="customerName" class="form-label">Müşteri Adı</label>
+                  <input type="text" class="form-control" id="customerName" placeholder="Müşteri Ara">
+                </div>
+                <div class="col-12">
+                  <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                      <i class="fas fa-search me-1"></i> Filtrele
+                    </button>
+                    <button type="reset" class="btn btn-outline-secondary">
+                      <i class="fas fa-times me-1"></i> Temizle
+                    </button>
+                    <button type="button" class="btn btn-outline-success ms-auto">
+                      <i class="fas fa-file-excel me-1"></i> Excel'e Aktar
+                    </button>
+                    <button type="button" class="btn btn-outline-danger">
+                      <i class="fas fa-file-pdf me-1"></i> PDF'e Aktar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <!-- Orders Table -->
+        <div class="card">
+          <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Siparişler</h5>
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">
+                <i class="fas fa-sync-alt me-1"></i> Yenile
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                <i class="fas fa-cog me-1"></i> İşlemler
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#"><i class="fas fa-check me-2"></i> Seçilenleri Onayla</a></li>
+                <li><a class="dropdown-item" href="#"><i class="fas fa-truck me-2"></i> Seçilenleri Kargolandı İşaretle</a></li>
+                <li><a class="dropdown-item" href="#"><i class="fas fa-times me-2"></i> Seçilenleri İptal Et</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#"><i class="fas fa-trash me-2"></i> Seçilenleri Sil</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="selectAllOrders">
+                      </div>
+                    </th>
+                    <th>Sipariş ID</th>
+                    <th>Tarih</th>
+                    <th>Müşteri</th>
+                    <th>Tutar</th>
+                    <th>Ödeme Yöntemi</th>
+                    <th>Durum</th>
+                    <th>İşlem</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="order1">
+                      </div>
+                    </td>
+                    <td>#87654321</td>
+                    <td>22.06.2023</td>
+                    <td>Ahmet Yılmaz</td>
+                    <td>₺125.000</td>
+                    <td>Havale/EFT</td>
+                    <td><span class="badge bg-success">Onaylandı</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm">
+                        <a href="#" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
+                        <button class="btn btn-outline-success"><i class="fas fa-check"></i></button>
+                        <button class="btn btn-outline-warning"><i class="fas fa-truck"></i></button>
+                        <button class="btn btn-outline-danger"><i class="fas fa-times"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="order2">
+                      </div>
+                    </td>
+                    <td>#87654320</td>
+                    <td>21.06.2023</td>
+                    <td>Mehmet Demir</td>
+                    <td>₺85.000</td>
+                    <td>Kredi Kartı</td>
+                    <td><span class="badge bg-warning text-dark">Kargoda</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm">
+                        <a href="#" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
+                        <button class="btn btn-outline-info"><i class="fas fa-box-open"></i></button>
+                        <button class="btn btn-outline-danger"><i class="fas fa-times"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="order3">
+                      </div>
+                    </td>
+                    <td>#87654319</td>
+                    <td>20.06.2023</td>
+                    <td>Ayşe Kaya</td>
+                    <td>₺95.000</td>
+                    <td>Havale/EFT</td>
+                    <td><span class="badge bg-danger">İptal Edildi</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm">
+                        <a href="#" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
+                        <button class="btn btn-outline-secondary"><i class="fas fa-undo"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="order4">
+                      </div>
+                    </td>
+                    <td>#87654318</td>
+                    <td>19.06.2023</td>
+                    <td>Ali Özcan</td>
+                    <td>₺42.000</td>
+                    <td>Kredi Kartı</td>
+                    <td><span class="badge bg-info">Teslim Edildi</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm">
+                        <a href="#" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
+                        <button class="btn btn-outline-secondary"><i class="fas fa-file-invoice"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="order5">
+                      </div>
+                    </td>
+                    <td>#87654317</td>
+                    <td>18.06.2023</td>
+                    <td>Zeynep Turan</td>
+                    <td>₺78.500</td>
+                    <td>Havale/EFT</td>
+                    <td><span class="badge bg-secondary">Hazırlanıyor</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm">
+                        <a href="#" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
+                        <button class="btn btn-outline-warning"><i class="fas fa-truck"></i></button>
+                        <button class="btn btn-outline-danger"><i class="fas fa-times"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="order6">
+                      </div>
+                    </td>
+                    <td>#87654316</td>
+                    <td>17.06.2023</td>
+                    <td>Emre Şahin</td>
+                    <td>₺55.250</td>
+                    <td>Kredi Kartı</td>
+                    <td><span class="badge bg-warning text-dark">Beklemede</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm">
+                        <a href="#" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
+                        <button class="btn btn-outline-success"><i class="fas fa-check"></i></button>
+                        <button class="btn btn-outline-danger"><i class="fas fa-times"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="order7">
+                      </div>
+                    </td>
+                    <td>#87654315</td>
+                    <td>16.06.2023</td>
+                    <td>Murat Yıldız</td>
+                    <td>₺33.800</td>
+                    <td>Havale/EFT</td>
+                    <td><span class="badge bg-info">Teslim Edildi</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm">
+                        <a href="#" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
+                        <button class="btn btn-outline-secondary"><i class="fas fa-file-invoice"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <!-- Pagination -->
+            <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-center mt-4">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Önceki</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Sonraki</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2023 Cep Telefonu Toptancılığı Platformu - Admin Paneli</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="mb-0">Versiyon 1.0.0</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>

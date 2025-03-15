@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sepetim - Cep Telefonu Toptancılığı</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Özel CSS -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-smartphone-shop-sale-logo-design-png-image_5069958.jpg" alt="Logo" height="60">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Ana Sayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Ürünler</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="orders.html">Siparişlerim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html">Bakiye</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <a href="cart.html" class="btn btn-outline-primary position-relative me-2">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                3
+              </span>
+            </a>
+            <a href="login.html" class="btn btn-outline-primary me-2">Giriş</a>
+            <a href="register.html" class="btn btn-primary">Kayıt Ol</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Cart Section -->
+  <div class="container py-5">
+    <h1 class="mb-4">Sepetim</h1>
+    
+    <div class="row">
+      <!-- Cart Items -->
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Ürünler (3)</h5>
+            <button class="btn btn-sm btn-outline-danger" id="clearCart">
+              <i class="fas fa-trash me-1"></i> Sepeti Temizle
+            </button>
+          </div>
+          <div class="card-body">
+            <!-- Cart Item 1 -->
+            <div class="row cart-item mb-4 pb-3 border-bottom">
+              <div class="col-md-2 col-4">
+                <img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?q=80&w=120&h=120&auto=format&fit=crop" class="img-fluid rounded" alt="iPhone 13 Pro">
+              </div>
+              <div class="col-md-6 col-8">
+                <h5 class="product-title">iPhone 13 Pro</h5>
+                <p class="text-muted small mb-1">Apple / Model No: MLVE3TU/A</p>
+                <p class="text-muted small mb-2">Renk: <span class="color-circle bg-dark"></span> Siyah</p>
+                <div class="d-flex align-items-center">
+                  <div class="input-group input-group-sm quantity-selector" style="width: 120px;">
+                    <button class="btn btn-outline-secondary quantity-btn" type="button" data-action="decrease">-</button>
+                    <input type="text" class="form-control text-center quantity-input" value="1" readonly>
+                    <button class="btn btn-outline-secondary quantity-btn" type="button" data-action="increase">+</button>
+                  </div>
+                  <button class="btn btn-sm btn-outline-danger ms-3 remove-item-btn">
+                    <i class="fas fa-times"></i> Kaldır
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-4 mt-3 mt-md-0">
+                <div class="text-end">
+                  <p class="fw-bold text-success item-price mb-0">₺25.000</p>
+                  <p class="text-muted small">Birim Fiyat: ₺25.000</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Cart Item 2 -->
+            <div class="row cart-item mb-4 pb-3 border-bottom">
+              <div class="col-md-2 col-4">
+                <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?q=80&w=120&h=120&auto=format&fit=crop" class="img-fluid rounded" alt="Samsung Galaxy S22">
+              </div>
+              <div class="col-md-6 col-8">
+                <h5 class="product-title">Samsung Galaxy S22</h5>
+                <p class="text-muted small mb-1">Samsung / Model No: SM-S901E</p>
+                <p class="text-muted small mb-2">Renk: <span class="color-circle bg-primary"></span> Mavi</p>
+                <div class="d-flex align-items-center">
+                  <div class="input-group input-group-sm quantity-selector" style="width: 120px;">
+                    <button class="btn btn-outline-secondary quantity-btn" type="button" data-action="decrease">-</button>
+                    <input type="text" class="form-control text-center quantity-input" value="2" readonly>
+                    <button class="btn btn-outline-secondary quantity-btn" type="button" data-action="increase">+</button>
+                  </div>
+                  <button class="btn btn-sm btn-outline-danger ms-3 remove-item-btn">
+                    <i class="fas fa-times"></i> Kaldır
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-4 mt-3 mt-md-0">
+                <div class="text-end">
+                  <p class="fw-bold text-success item-price mb-0">₺39.998</p>
+                  <p class="text-muted small">Birim Fiyat: ₺19.999</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Cart Item 3 -->
+            <div class="row cart-item">
+              <div class="col-md-2 col-4">
+                <img src="https://images.unsplash.com/photo-1598965402089-897ce52e8355?q=80&w=120&h=120&auto=format&fit=crop" class="img-fluid rounded" alt="Xiaomi Redmi Note 11">
+              </div>
+              <div class="col-md-6 col-8">
+                <h5 class="product-title">Xiaomi Redmi Note 11</h5>
+                <p class="text-muted small mb-1">Xiaomi / Model No: 2201117TG</p>
+                <p class="text-muted small mb-2">Renk: <span class="color-circle bg-dark"></span> Siyah</p>
+                <div class="d-flex align-items-center">
+                  <div class="input-group input-group-sm quantity-selector" style="width: 120px;">
+                    <button class="btn btn-outline-secondary quantity-btn" type="button" data-action="decrease">-</button>
+                    <input type="text" class="form-control text-center quantity-input" value="3" readonly>
+                    <button class="btn btn-outline-secondary quantity-btn" type="button" data-action="increase">+</button>
+                  </div>
+                  <button class="btn btn-sm btn-outline-danger ms-3 remove-item-btn">
+                    <i class="fas fa-times"></i> Kaldır
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-4 mt-3 mt-md-0">
+                <div class="text-end">
+                  <p class="fw-bold text-success item-price mb-0">₺23.997</p>
+                  <p class="text-muted small">Birim Fiyat: ₺7.999</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Add Coupon & Continue Shopping -->
+        <div class="d-flex justify-content-between flex-wrap gap-2">
+          <div class="input-group mb-3" style="max-width: 350px;">
+            <input type="text" class="form-control" placeholder="İndirim kodu girin">
+            <button class="btn btn-outline-primary" type="button">Uygula</button>
+          </div>
+          
+          <div>
+            <a href="products.html" class="btn btn-outline-secondary">
+              <i class="fas fa-arrow-left me-1"></i> Alışverişe Devam Et
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Order Summary -->
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-header bg-white py-3">
+            <h5 class="mb-0">Sipariş Özeti</h5>
+          </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-2">
+              <span>Ürünler Toplamı</span>
+              <span class="fw-bold">₺88.995</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>İndirim</span>
+              <span class="fw-bold text-danger">- ₺0</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>KDV (%18)</span>
+              <span class="fw-bold">₺16.019</span>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between mb-3">
+              <span class="fw-bold">Toplam</span>
+              <span class="fw-bold text-success fs-5">₺88.995</span>
+            </div>
+            <a href="checkout.html" class="btn btn-primary w-100">
+              <i class="fas fa-credit-card me-1"></i> Ödemeye Geç
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Info -->
+        <div class="card">
+          <div class="card-body">
+            <div class="mb-3 d-flex align-items-center">
+              <i class="fas fa-truck text-primary fs-4 me-3"></i>
+              <div>
+                <h6 class="mb-1">Ücretsiz Kargo</h6>
+                <p class="text-muted small mb-0">₺5.000 ve üzeri siparişlerde</p>
+              </div>
+            </div>
+            <div class="mb-3 d-flex align-items-center">
+              <i class="fas fa-shield-alt text-primary fs-4 me-3"></i>
+              <div>
+                <h6 class="mb-1">Güvenli Ödeme</h6>
+                <p class="text-muted small mb-0">256-bit SSL şifreleme</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="fas fa-exchange-alt text-primary fs-4 me-3"></i>
+              <div>
+                <h6 class="mb-1">Kolay İade</h6>
+                <p class="text-muted small mb-0">14 gün içinde ücretsiz iade</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>İletişim</h5>
+          <address class="mb-0">
+            <p><i class="fas fa-map-marker-alt me-2"></i> Merkez Mah. Ticaret Cad. No:123</p>
+            <p><i class="fas fa-phone me-2"></i> (0212) 123 45 67</p>
+            <p><i class="fas fa-envelope me-2"></i> info@toptanciplatform.com</p>
+          </address>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Hızlı Linkler</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white">Ana Sayfa</a></li>
+            <li><a href="products.html" class="text-white">Ürünler</a></li>
+            <li><a href="#" class="text-white">Hakkımızda</a></li>
+            <li><a href="#" class="text-white">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Bültenimize Abone Olun</h5>
+          <p>Yeni ürünlerden ve kampanyalardan haberdar olun.</p>
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="E-posta adresiniz">
+            <button class="btn btn-primary" type="button">Abone Ol</button>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p class="mb-0">&copy; 2023 Cep Telefonu Toptancılığı Platformu. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Ürün miktarı değiştirme işlevleri
+      document.querySelectorAll('.quantity-btn').forEach(button => {
+        button.addEventListener('click', function() {
+          const action = this.getAttribute('data-action');
+          const input = this.closest('.quantity-selector').querySelector('.quantity-input');
+          const itemPrice = this.closest('.cart-item').querySelector('.item-price');
+          const unitPrice = parseInt(this.closest('.cart-item').querySelector('.text-muted.small').textContent.replace('Birim Fiyat: ₺', '').replace('.', ''));
+          
+          let quantity = parseInt(input.value);
+          
+          if (action === 'increase') {
+            quantity += 1;
+          } else if (action === 'decrease' && quantity > 1) {
+            quantity -= 1;
+          }
+          
+          input.value = quantity;
+          itemPrice.textContent = '₺' + (quantity * unitPrice).toLocaleString('tr-TR');
+          
+          // Toplam fiyatı güncelle
+          updateCartTotals();
+        });
+      });
+      
+      // Ürün kaldırma işlevi
+      document.querySelectorAll('.remove-item-btn').forEach(button => {
+        button.addEventListener('click', function() {
+          if (confirm('Bu ürünü sepetten kaldırmak istediğinize emin misiniz?')) {
+            this.closest('.cart-item').remove();
+            updateCartTotals();
+            
+            // Sepette ürün kalmadıysa mesaj göster
+            const cartItems = document.querySelectorAll('.cart-item');
+            if (cartItems.length === 0) {
+              const cartCard = document.querySelector('.card-body');
+              cartCard.innerHTML = '<div class="text-center py-5"><i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i><p>Sepetinizde ürün bulunmuyor.</p><a href="products.html" class="btn btn-primary">Alışverişe Başla</a></div>';
+              
+              // Sepet özeti güncelle
+              document.querySelector('.card-header h5').textContent = 'Ürünler (0)';
+            }
+          }
+        });
+      });
+      
+      // Sepeti temizle butonu
+      const clearCartBtn = document.getElementById('clearCart');
+      if (clearCartBtn) {
+        clearCartBtn.addEventListener('click', function() {
+          if (confirm('Sepetinizdeki tüm ürünleri kaldırmak istediğinize emin misiniz?')) {
+            const cartItems = document.querySelectorAll('.cart-item');
+            cartItems.forEach(item => item.remove());
+            
+            const cartCard = document.querySelector('.card-body');
+            cartCard.innerHTML = '<div class="text-center py-5"><i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i><p>Sepetinizde ürün bulunmuyor.</p><a href="products.html" class="btn btn-primary">Alışverişe Başla</a></div>';
+            
+            // Sepet özeti güncelle
+            document.querySelector('.card-header h5').textContent = 'Ürünler (0)';
+            updateCartTotals(true);
+          }
+        });
+      }
+      
+      // Toplam fiyatları güncelle
+      function updateCartTotals(isEmpty = false) {
+        if (isEmpty) {
+          document.querySelector('.d-flex:nth-child(1) .fw-bold').textContent = '₺0';
+          document.querySelector('.d-flex:nth-child(3) .fw-bold').textContent = '₺0';
+          document.querySelector('.d-flex:nth-child(4) .fw-bold').textContent = '₺0';
+          return;
+        }
+        
+        let total = 0;
+        
+        // Tüm ürün fiyatlarını topla
+        document.querySelectorAll('.item-price').forEach(price => {
+          total += parseInt(price.textContent.replace('₺', '').replace('.', ''));
+        });
+        
+        // Türkçe formatta göster
+        const formattedTotal = total.toLocaleString('tr-TR');
+        const tax = Math.round(total * 0.18).toLocaleString('tr-TR');
+        
+        // Özet bölümünü güncelle
+        document.querySelector('.d-flex:nth-child(1) .fw-bold').textContent = '₺' + formattedTotal;
+        document.querySelector('.d-flex:nth-child(3) .fw-bold').textContent = '₺' + tax;
+        document.querySelector('.d-flex:nth-child(4) .fw-bold').textContent = '₺' + formattedTotal;
+      }
+    });
+  </script>
+</body>
+</html>

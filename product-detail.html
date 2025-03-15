@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ürün Detayı - Cep Telefonu Toptancılığı</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Özel CSS -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-smartphone-shop-sale-logo-design-png-image_5069958.jpg" alt="Logo" height="60">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Ana Sayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="products.html">Ürünler</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="orders.html">Siparişlerim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html">Bakiye</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <a href="login.html" class="btn btn-outline-primary me-2">Giriş</a>
+            <a href="register.html" class="btn btn-primary">Kayıt Ol</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Product Detail Section -->
+  <div class="container py-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li>
+        <li class="breadcrumb-item"><a href="products.html">Ürünler</a></li>
+        <li class="breadcrumb-item active" aria-current="page">iPhone 13 Pro</li>
+      </ol>
+    </nav>
+
+    <div class="row g-5">
+      <!-- Product Images -->
+      <div class="col-lg-6">
+        <div class="product-gallery">
+          <div class="swipe-container">
+            <div class="swipe-wrapper">
+              <div class="swipe-slide active">
+                <img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?q=80&w=600&auto=format&fit=crop" class="img-fluid product-detail-image" alt="iPhone 13 Pro">
+              </div>
+              <div class="swipe-slide">
+                <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?q=80&w=600&auto=format&fit=crop" class="img-fluid product-detail-image" alt="iPhone 13 Pro">  
+              </div>
+              <div class="swipe-slide">
+                <img src="https://images.unsplash.com/photo-1581795669633-91ef7c9699a8?q=80&w=600&auto=format&fit=crop" class="img-fluid product-detail-image" alt="iPhone 13 Pro">
+              </div>
+              <div class="swipe-slide">
+                <img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?q=80&w=600&auto=format&fit=crop" class="img-fluid product-detail-image" alt="iPhone 13 Pro">
+              </div>
+            </div>
+            <div class="swipe-pagination"></div>
+          </div>
+          <div class="row mt-3 product-thumbnails">
+            <div class="col-3">
+              <img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?q=80&w=150&h=150&auto=format&fit=crop" class="img-fluid rounded product-thumbnail border border-primary" alt="Ürün Resmi 1" data-index="0">
+            </div>
+            <div class="col-3">
+              <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?q=80&w=150&h=150&auto=format&fit=crop" class="img-fluid rounded product-thumbnail" alt="Ürün Resmi 2" data-index="1">
+            </div>
+            <div class="col-3">
+              <img src="https://images.unsplash.com/photo-1581795669633-91ef7c9699a8?q=80&w=150&h=150&auto=format&fit=crop" class="img-fluid rounded product-thumbnail" alt="Ürün Resmi 3" data-index="2">
+            </div>
+            <div class="col-3">
+              <img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?q=80&w=150&h=150&auto=format&fit=crop" class="img-fluid rounded product-thumbnail" alt="Ürün Resmi 4" data-index="3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Info -->
+      <div class="col-lg-6">
+        <div class="product-detail-info">
+          <h1 class="mb-2">iPhone 13 Pro</h1>
+          <div class="mb-3">
+            <p class="text-muted small">B2B Distribütör</p>
+          </div>
+          <h2 class="text-success mb-3">₺25.000'den başlayan fiyatlarla</h2>
+          <p class="text-muted mb-4">Stok Durumu: <span class="text-success">Mevcut (120 adet)</span></p>
+
+          <div class="mb-4">
+            <h5>Renk Seçenekleri</h5>
+            <div class="d-flex mt-2">
+              <div class="product-color-option active p-2 border border-primary rounded me-2" data-color-name="Siyah">
+                <span class="color-circle bg-dark"></span>
+                <span class="ms-1">Siyah</span>
+              </div>
+              <div class="product-color-option p-2 border rounded me-2" data-color-name="Mavi">
+                <span class="color-circle bg-primary"></span>
+                <span class="ms-1">Mavi</span>
+              </div>
+              <div class="product-color-option p-2 border rounded me-2" data-color-name="Beyaz">
+                <span class="color-circle bg-light border"></span>
+                <span class="ms-1">Beyaz</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <h5>Teknik Özellikler</h5>
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <th>İşlemci</th>
+                  <td>A15 Bionic</td>
+                </tr>
+                <tr>
+                  <th>RAM</th>
+                  <td>6 GB</td>
+                </tr>
+                <tr>
+                  <th>Depolama</th>
+                  <td>128 GB</td>
+                </tr>
+                <tr>
+                  <th>Ekran</th>
+                  <td>6.1 inç Super Retina XDR</td>
+                </tr>
+                <tr>
+                  <th>Batarya</th>
+                  <td>3095 mAh</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="d-flex gap-2 mb-4">
+                <button class="btn btn-primary" id="addToCartBtn">
+                  <i class="fas fa-shopping-cart me-1"></i> Sepete Ekle
+                </button>
+                <a href="cart.html" class="btn btn-success d-none" id="goToCartBtn">
+                  <i class="fas fa-check-circle me-1"></i> Sepete Git
+                </a>
+                <button class="btn btn-outline-primary">
+                  <i class="far fa-heart me-1"></i> Favorilere Ekle
+                </button>
+              </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seller Prices Section -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <h3 class="mb-4">Satıcı Fiyatları</h3>
+        <p class="text-muted mb-3">iPhone 13 Pro 128GB Siyah için en uygun fiyatlar (5 satıcı)</p>
+
+        <div id="sellerPricesList">
+          <!-- Seller 1 -->
+          <div class="card mb-3 seller-card">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <h5 class="mb-1">Teknoloji A.Ş.</h5>
+                  <p class="text-muted small">B2B Distribütör</p>
+                </div>
+                <div class="col-md-3">
+                  <p class="mb-1"><i class="fas fa-box me-2"></i> 50+ stok</p>
+                  <p class="mb-0"><i class="fas fa-truck me-2"></i> 1-3 gün kargo</p>
+                </div>
+                <div class="col-md-3">
+                  <p class="mb-1"><i class="fas fa-certificate me-2 text-success"></i> 24 ay garanti</p>
+                  <p class="mb-0"><i class="fas fa-check-circle me-2 text-success"></i> Fatura kesebilir</p>
+                </div>
+                <div class="col-md-3 text-end">
+                  <h4 class="text-success mb-2">₺25.000</h4>
+                  <button class="btn btn-primary">Sipariş Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seller 2 -->
+          <div class="card mb-3 seller-card">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <h5 class="mb-1">Telefon Dünyası</h5>
+                  <p class="text-muted small">B2B Distribütör</p>
+                </div>
+                <div class="col-md-3">
+                  <p class="mb-1"><i class="fas fa-box me-2"></i> 35+ stok</p>
+                  <p class="mb-0"><i class="fas fa-truck me-2"></i> 1-2 gün kargo</p>
+                </div>
+                <div class="col-md-3">
+                  <p class="mb-1"><i class="fas fa-certificate me-2 text-success"></i> 24 ay garanti</p>
+                  <p class="mb-0"><i class="fas fa-check-circle me-2 text-success"></i> Fatura kesebilir</p>
+                </div>
+                <div class="col-md-3 text-end">
+                  <h4 class="text-success mb-2">₺25.250</h4>
+                  <button class="btn btn-primary">Sipariş Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seller 3 -->
+          <div class="card mb-3 seller-card">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <h5 class="mb-1">Mobil Merkez</h5>
+                  <p class="text-muted small">B2B Distribütör</p>
+                </div>
+                <div class="col-md-3">
+                  <p class="mb-1"><i class="fas fa-box me-2"></i> 20+ stok</p>
+                  <p class="mb-0"><i class="fas fa-truck me-2"></i> 2-4 gün kargo</p>
+                </div>
+                <div class="col-md-3">
+                  <p class="mb-1"><i class="fas fa-certificate me-2 text-success"></i> 24 ay garanti</p>
+                  <p class="mb-0"><i class="fas fa-check-circle me-2 text-success"></i> Fatura kesebilir</p>
+                </div>
+                <div class="col-md-3 text-end">
+                  <h4 class="text-success mb-2">₺25.500</h4>
+                  <button class="btn btn-primary">Sipariş Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seller 4 -->
+          <div class="card mb-3 seller-card">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <h5 class="mb-1">Telefon Pazarı</h5>
+                  <p class="text-muted small">B2B Distribütör</p>
+                </div>
+                <div class="col-md-3">
+                  <p class="mb-1"><i class="fas fa-box me-2"></i> 15+ stok</p>
+                  <p class="mb-0"><i class="fas fa-truck me-2"></i> 1-3 gün kargo</p>
+                </div>
+                <div class="col-md-3">
+                  <p class="mb-1"><i class="fas fa-certificate me-2 text-success"></i> 24 ay garanti</p>
+                  <p class="mb-0"><i class="fas fa-check-circle me-2 text-success"></i> Fatura kesebilir</p>
+                </div>
+                <div class="col-md-3 text-end">
+                  <h4 class="text-success mb-2">₺25.750</h4>
+                  <button class="btn btn-primary">Sipariş Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seller 5 -->
+          <div class="card mb-3 seller-card">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <h5 class="mb-1">Elektronik Dükkanı</h5>
+                  <p class="text-muted small">B2B Distribütör</p>
+                </div>
+                <div class="col-md-3">
+                  <p class="mb-1"><i class="fas fa-box me-2"></i> 10+ stok</p>
+                  <p class="mb-0"><i class="fas fa-truck me-2"></i> 2-5 gün kargo</p>
+                </div>
+                <div class="col-md-3">
+                  <p class="mb-1"><i class="fas fa-certificate me-2 text-success"></i> 24 ay garanti</p>
+                  <p class="mb-0"><i class="fas fa-check-circle me-2 text-success"></i> Fatura kesebilir</p>
+                </div>
+                <div class="col-md-3 text-end">
+                  <h4 class="text-success mb-2">₺25.900</h4>
+                  <button class="btn btn-primary">Sipariş Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Daha Fazla Satıcı (Varsayılan olarak gizlenecek, JS ile gösterilecek) -->
+          <!-- Seller 6 -->
+          <div class="card mb-3 seller-card">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <h5 class="mb-1">Tekno Pazar</h5>
+                  <p class="text-muted small">B2B Distribütör</p>
+                </div>
+                <div class="col-md-3">
+                  <p class="mb-1"><i class="fas fa-box me-2"></i> 5+ stok</p>
+                  <p class="mb-0"><i class="fas fa-truck me-2"></i> 3-5 gün kargo</p>
+                </div>
+                <div class="col-md-3">
+                  <p class="mb-1"><i class="fas fa-certificate me-2 text-success"></i> 24 ay garanti</p>
+                  <p class="mb-0"><i class="fas fa-check-circle me-2 text-success"></i> Fatura kesebilir</p>
+                </div>
+                <div class="col-md-3 text-end">
+                  <h4 class="text-success mb-2">₺26.000</h4>
+                  <button class="btn btn-primary">Sipariş Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seller 7 -->
+          <div class="card mb-3 seller-card">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <h5 class="mb-1">Telefon Deposu</h5>
+                  <p class="text-muted small">B2B Distribütör</p>
+                </div>
+                <div class="col-md-3">
+                  <p class="mb-1"><i class="fas fa-box me-2"></i> 8+ stok</p>
+                  <p class="mb-0"><i class="fas fa-truck me-2"></i> 2-4 gün kargo</p>
+                </div>
+                <div class="col-md-3">
+                  <p class="mb-1"><i class="fas fa-certificate me-2 text-success"></i> 24 ay garanti</p>
+                  <p class="mb-0"><i class="fas fa-check-circle me-2 text-success"></i> Fatura kesebilir</p>
+                </div>
+                <div class="col-md-3 text-end">
+                  <h4 class="text-success mb-2">₺26.250</h4>
+                  <button class="btn btn-primary">Sipariş Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button id="loadMoreSellers" class="btn btn-outline-secondary mt-3">
+          Daha Fazla Satıcı Göster (2)
+        </button>
+      </div>
+    </div>
+
+    <!-- Product Description -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <ul class="nav nav-tabs" id="productTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab">Ürün Açıklaması</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="specs-tab" data-bs-toggle="tab" data-bs-target="#specs" type="button" role="tab">Detaylı Özellikler</button>
+          </li>
+          </ul>
+        <div class="tab-content p-4 border border-top-0 rounded-bottom" id="productTabContent">
+          <div class="tab-pane fade show active" id="description" role="tabpanel">
+            <h4>iPhone 13 Pro</h4>
+            <p>Apple iPhone 13 Pro, 6.1 inç Super Retina XDR ekran, A15 Bionic çip, Pro kamera sistemi, 6GB RAM ve 128GB depolama alanı ile üst düzey bir telefon deneyimi sunuyor.</p>
+            <p>Gelişmiş kamera sistemleri sayesinde profesyonel fotoğrafçılık deneyimini cebinize sığdırıyor. 12MP geniş, ultra geniş ve telefoto lensler, makro çekim ve gece modu özellikleri ile çeşitli fotoğraf seçenekleri sunuyor.</p>
+            <p>ProMotion teknolojisiyle 120Hz'e kadar yenileme hızı sunan ekranı, pürüzsüz kaydırma ve daha iyi oyun deneyimi sağlıyor.</p>
+          </div>
+          <div class="tab-pane fade" id="specs" role="tabpanel">
+            <h4>Detaylı Teknik Özellikler</h4>
+            <table class="table table-striped">
+              <tbody>
+                <tr>
+                  <th style="width: 200px;">Ekran</th>
+                  <td>6.1 inç Super Retina XDR OLED (2532 x 1170 piksel, 460 ppi), ProMotion 120Hz</td>
+                </tr>
+                <tr>
+                  <th>İşlemci</th>
+                  <td>Apple A15 Bionic (5nm), 6 çekirdek CPU, 5 çekirdek GPU</td>
+                </tr>
+                <tr>
+                  <th>RAM</th>
+                  <td>6 GB</td>
+                </tr>
+                <tr>
+                  <th>Depolama</th>
+                  <td>128 GB</td>
+                </tr>
+                <tr>
+                  <th>Arka Kamera</th>
+                  <td>12 MP, f/1.5 (geniş) + 12 MP, f/1.8 (ultra geniş) + 12 MP, f/2.8 (telefoto)</td>
+                </tr>
+                <tr>
+                  <th>Ön Kamera</th>
+                  <td>12 MP, f/2.2</td>
+                </tr>
+                <tr>
+                  <th>Batarya</th>
+                  <td>3095 mAh, 20W kablolu şarj, 15W MagSafe kablosuz şarj</td>
+                </tr>
+                <tr>
+                  <th>İşletim Sistemi</th>
+                  <td>iOS 15 (iOS 16'ya yükseltilebilir)</td>
+                </tr>
+                <tr>
+                  <th>Boyutlar</th>
+                  <td>146.7 x 71.5 x 7.7 mm</td>
+                </tr>
+                <tr>
+                  <th>Ağırlık</th>
+                  <td>204 g</td>
+                </tr>
+                <tr>
+                  <th>Su Dayanıklılık</th>
+                  <td>IP68 (6 metre derinlikte 30 dakikaya kadar)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>İletişim</h5>
+          <address class="mb-0">
+            <p><i class="fas fa-map-marker-alt me-2"></i> Merkez Mah. Ticaret Cad. No:123</p>
+            <p><i class="fas fa-phone me-2"></i> (0212) 123 45 67</p>
+            <p><i class="fas fa-envelope me-2"></i> info@toptanciplatform.com</p>
+          </address>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Hızlı Linkler</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white">Ana Sayfa</a></li>
+            <li><a href="products.html" class="text-white">Ürünler</a></li>
+            <li><a href="#" class="text-white">Hakkımızda</a></li>
+            <li><a href="#" class="text-white">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Bültenimize Abone Olun</h5>
+          <p>Yeni ürünlerden ve kampanyalardan haberdar olun.</p>
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="E-posta adresiniz">
+            <button class="btn btn-primary" type="button">Abone Ol</button>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p class="mb-0">&copy; 2023 Cep Telefonu Toptancılığı Platformu. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Ürün detay sayfası yüklendi');
+
+      // Satıcı butonlarına tıklama işlevi ekle
+      document.querySelectorAll('.seller-card .btn-primary').forEach(button => {
+        button.addEventListener('click', function() {
+          const sellerName = this.closest('.seller-card').querySelector('h5').textContent;
+          const price = this.closest('.seller-card').querySelector('h4').textContent;
+          alert(`${sellerName} satıcısından ${price} tutarında sipariş verilecek.`);
+        });
+      });
+
+      // Sayfa yüklenirken setupProductDetailPage fonksiyonunu manuel çağır
+      if (typeof setupProductDetailPage === 'function') {
+        setupProductDetailPage();
+      } else if (typeof setupSellerPrices === 'function') {
+        setupSellerPrices();
+      } else {
+        // Fonksiyonlar yüklenmemişse doğrudan işlevsellik ekle
+
+        // Basit kaydırmalı galeri işlevi
+        const thumbnails = document.querySelectorAll('.product-thumbnail');
+        const slides = document.querySelectorAll('.swipe-slide');
+        let currentIndex = 0;
+
+        // Tüm resimleri önceden yükle
+        slides.forEach(slide => {
+          const img = slide.querySelector('img');
+          if (img) {
+            const preloadImg = new Image();
+            preloadImg.src = img.src;
+          }
+        });
+
+        // Sayfalama oluştur
+        const pagination = document.querySelector('.swipe-pagination');
+        if (pagination) {
+          slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'swipe-pagination-dot' + (index === 0 ? ' active' : '');
+            dot.addEventListener('click', () => goToSlide(index));
+            pagination.appendChild(dot);
+          });
+        }
+
+        // Küçük resimlere tıklama işlevi
+        thumbnails.forEach(thumbnail => {
+          thumbnail.addEventListener('click', function() {
+            const index = parseInt(this.getAttribute('data-index') || '0');
+            goToSlide(index);
+          });
+        });
+
+        // Dokunma olayları
+        const container = document.querySelector('.swipe-container');
+        if (container) {
+          let startX, currentX;
+          let isDragging = false;
+
+          container.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+          }, { passive: true });
+
+          container.addEventListener('touchmove', function(e) {
+            if (isDragging) {
+              currentX = e.touches[0].clientX;
+            }
+          }, { passive: true });
+
+          container.addEventListener('touchend', function() {
+            if (isDragging) {
+              const diffX = startX - currentX;
+              if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                  // Sola kaydırma
+                  goToSlide(currentIndex + 1);
+                } else {
+                  // Sağa kaydırma
+                  goToSlide(currentIndex - 1);
+                }
+              }
+              isDragging = false;
+            }
+          });
+
+          // Fare olayları
+          container.addEventListener('mousedown', function(e) {
+            startX = e.clientX;
+            isDragging = true;
+            container.style.cursor = 'grabbing';
+          });
+
+          container.addEventListener('mousemove', function(e) {
+            if (isDragging) {
+              currentX = e.clientX;
+            }
+          });
+
+          container.addEventListener('mouseup', function() {
+            if (isDragging) {
+              const diffX = startX - currentX;
+              if (Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                  goToSlide(currentIndex + 1);
+                } else {
+                  goToSlide(currentIndex - 1);
+                }
+              }
+              isDragging = false;
+              container.style.cursor = 'grab';
+            }
+          });
+
+          container.addEventListener('mouseleave', function() {
+            isDragging = false;
+            container.style.cursor = '';
+          });
+        }
+
+        function goToSlide(index) {
+          if (index < 0) index = slides.length - 1;
+          if (index >= slides.length) index = 0;
+
+          // Aktif slaytı güncelle
+          slides.forEach(slide => slide.classList.remove('active'));
+          slides[index].classList.add('active');
+
+          // Küçük resimleri güncelle
+          thumbnails.forEach(thumb => thumb.classList.remove('border-primary'));
+          thumbnails[index].classList.add('border-primary');
+
+          // Sayfalama noktalarını güncelle
+          const dots = document.querySelectorAll('.swipe-pagination-dot');
+          dots.forEach(dot => dot.classList.remove('active'));
+          if (dots[index]) dots[index].classList.add('active');
+
+          currentIndex = index;
+        }
+
+        // Renk seçenekleri tıklama işlevi
+        document.querySelectorAll('.product-color-option').forEach(option => {
+          option.addEventListener('click', function() {
+            // Hemen UI güncellemesini yap
+            document.querySelectorAll('.product-color-option').forEach(opt => 
+              opt.classList.remove('active', 'border-primary'));
+            this.classList.add('active', 'border-primary');
+          });
+        });
+
+        // Daha fazla satıcı göster butonu
+        const loadMoreBtn = document.getElementById('loadMoreSellers');
+        const sellerCards = document.querySelectorAll('#sellerPricesList .seller-card');
+
+        if (loadMoreBtn && sellerCards.length > 5) {
+          // İlk 5 satıcı dışındaki satıcıları gizle
+          for (let i = 5; i < sellerCards.length; i++) {
+            sellerCards[i].style.display = 'none';
+          }
+
+          // Daha fazla göster butonuna tıklama olayı ekle
+          loadMoreBtn.addEventListener('click', function() {
+            for (let i = 5; i < sellerCards.length; i++) {
+              sellerCards[i].style.display = 'block';
+            }
+            // Butonu gizle
+            loadMoreBtn.style.display = 'none';
+          });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

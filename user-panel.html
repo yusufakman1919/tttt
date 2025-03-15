@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kullanıcı Paneli - Cep Telefonu Toptancılığı</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Özel CSS -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-smartphone-shop-sale-logo-design-png-image_5069958.jpg" alt="Logo" height="60">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Ana Sayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Ürünler</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="orders.html">Siparişlerim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html">Bakiye</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <div class="dropdown">
+              <button class="btn btn-outline-primary dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://via.placeholder.com/30x30" alt="User" class="rounded-circle me-2">
+                Ahmet Yılmaz
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                <li><a class="dropdown-item" href="user-panel.html"><i class="fas fa-user-cog me-2"></i>Hesabım</a></li>
+                <li><a class="dropdown-item" href="#favorites"><i class="fas fa-heart me-2"></i>Favorilerim</a></li>
+                <li><a class="dropdown-item" href="orders.html"><i class="fas fa-shopping-cart me-2"></i>Siparişlerim</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="index.html"><i class="fas fa-sign-out-alt me-2"></i>Çıkış</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container py-4">
+    <h2 class="mb-4">Kullanıcı Paneli</h2>
+    
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-3 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <img src="https://via.placeholder.com/150x150" alt="User" class="rounded-circle mb-3" width="100">
+            <h5>Ahmet Yılmaz</h5>
+            <p class="text-muted">Bayi: ABC Telefon</p>
+            <div class="d-grid gap-2">
+              <a href="#profile-edit" class="btn btn-sm btn-outline-primary">Profili Düzenle</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="list-group mt-4 shadow">
+          <a href="user-panel.html" class="list-group-item list-group-item-action active">
+            <i class="fas fa-tachometer-alt me-2"></i> Gösterge Paneli
+          </a>
+          <a href="profile.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-user me-2"></i> Profil Bilgileri
+          </a>
+          <a href="my-products.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-mobile-alt me-2"></i> Ürünlerim
+          </a>
+          <a href="my-products-bulk.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-edit me-2"></i> Toplu Ürün Güncelleme
+          </a>
+          <a href="orders.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-shopping-cart me-2"></i> Siparişlerim
+          </a>
+          <a href="wallet.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-wallet me-2"></i> Bakiye İşlemleri
+          </a>
+          <a href="#favorites" class="list-group-item list-group-item-action">
+            <i class="fas fa-heart me-2"></i> Favorilerim
+          </a>
+          <a href="addresses.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-map-marker-alt me-2"></i> Adreslerim
+          </a>
+          <a href="settings.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-cog me-2"></i> Hesap Ayarları
+          </a>
+        </div>
+      </div>
+      
+      <!-- Dashboard Content -->
+      <div class="col-lg-9">
+        <div class="row">
+          <!-- Account Summary -->
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-header bg-white py-3">
+                <h5 class="mb-0">Hesap Özeti</h5>
+              </div>
+              <div class="card-body">
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span>Bakiye</span>
+                    <span class="fw-bold">₺135.750</span>
+                  </div>
+                  <hr>
+                </div>
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span>Toplam Sipariş</span>
+                    <span class="fw-bold">27</span>
+                  </div>
+                  <hr>
+                </div>
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span>Bekleyen Sipariş</span>
+                    <span class="fw-bold">2</span>
+                  </div>
+                  <hr>
+                </div>
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span>Üyelik Tarihi</span>
+                    <span class="fw-bold">01.01.2023</span>
+                  </div>
+                  <hr>
+                </div>
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span>Üyelik Durumu</span>
+                    <span class="badge bg-success">Aktif</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Quick Actions -->
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-header bg-white py-3">
+                <h5 class="mb-0">Hızlı İşlemler</h5>
+              </div>
+              <div class="card-body">
+                <div class="row g-3">
+                  <div class="col-6">
+                    <a href="products.html" class="btn btn-light border w-100 py-3 h-100">
+                      <i class="fas fa-mobile-alt fa-2x d-block mb-2"></i>
+                      Ürünlere Göz At
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="orders.html" class="btn btn-light border w-100 py-3 h-100">
+                      <i class="fas fa-shopping-cart fa-2x d-block mb-2"></i>
+                      Siparişlerim
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="wallet.html" class="btn btn-light border w-100 py-3 h-100">
+                      <i class="fas fa-wallet fa-2x d-block mb-2"></i>
+                      Bakiye Yükle
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="#support" class="btn btn-light border w-100 py-3 h-100">
+                      <i class="fas fa-headset fa-2x d-block mb-2"></i>
+                      Destek
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Recent Orders -->
+        <div class="card mb-4">
+          <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Son Siparişlerim</h5>
+            <a href="orders.html" class="btn btn-sm btn-primary">Tümünü Gör</a>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Sipariş ID</th>
+                    <th>Tarih</th>
+                    <th>Tutar</th>
+                    <th>Durum</th>
+                    <th>İşlem</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#87654321</td>
+                    <td>22.06.2023</td>
+                    <td>₺125.000</td>
+                    <td><span class="badge bg-success">Onaylandı</span></td>
+                    <td>
+                      <a href="#" class="btn btn-sm btn-outline-primary">Detay</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#87654320</td>
+                    <td>21.06.2023</td>
+                    <td>₺85.000</td>
+                    <td><span class="badge bg-warning text-dark">Kargoda</span></td>
+                    <td>
+                      <a href="#" class="btn btn-sm btn-outline-primary">Detay</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#87654319</td>
+                    <td>20.06.2023</td>
+                    <td>₺95.000</td>
+                    <td><span class="badge bg-danger">İptal Edildi</span></td>
+                    <td>
+                      <a href="#" class="btn btn-sm btn-outline-primary">Detay</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Recent Transactions -->
+        <div class="card">
+          <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Son İşlemler</h5>
+            <a href="wallet.html" class="btn btn-sm btn-primary">Tümünü Gör</a>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>İşlem ID</th>
+                    <th>Tarih</th>
+                    <th>Açıklama</th>
+                    <th>Tutar</th>
+                    <th>Durum</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#TRX123456</td>
+                    <td>22.06.2023</td>
+                    <td>Bakiye Yükleme - Havale</td>
+                    <td class="text-success">+₺50.000</td>
+                    <td><span class="badge bg-success">Tamamlandı</span></td>
+                  </tr>
+                  <tr>
+                    <td>#TRX123455</td>
+                    <td>20.06.2023</td>
+                    <td>Sipariş #87654321</td>
+                    <td class="text-danger">-₺125.000</td>
+                    <td><span class="badge bg-success">Tamamlandı</span></td>
+                  </tr>
+                  <tr>
+                    <td>#TRX123454</td>
+                    <td>15.06.2023</td>
+                    <td>Bakiye Yükleme - Kredi Kartı</td>
+                    <td class="text-success">+₺100.000</td>
+                    <td><span class="badge bg-success">Tamamlandı</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>İletişim</h5>
+          <address class="mb-0">
+            <p><i class="fas fa-map-marker-alt me-2"></i> Merkez Mah. Ticaret Cad. No:123</p>
+            <p><i class="fas fa-phone me-2"></i> (0212) 123 45 67</p>
+            <p><i class="fas fa-envelope me-2"></i> info@toptanciplatform.com</p>
+          </address>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Hızlı Linkler</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white">Ana Sayfa</a></li>
+            <li><a href="products.html" class="text-white">Ürünler</a></li>
+            <li><a href="#" class="text-white">Hakkımızda</a></li>
+            <li><a href="#" class="text-white">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Bültenimize Abone Olun</h5>
+          <p>Yeni ürünlerden ve kampanyalardan haberdar olun.</p>
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="E-posta adresiniz">
+            <button class="btn btn-primary" type="button">Abone Ol</button>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p class="mb-0">&copy; 2023 Cep Telefonu Toptancılığı Platformu. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>

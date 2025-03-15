@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bakiye Yönetimi - Cep Telefonu Toptancılığı</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Özel CSS -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-smartphone-shop-sale-logo-design-png-image_5069958.jpg" alt="Logo" height="60">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Ana Sayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Ürünler</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="orders.html">Siparişlerim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="wallet.html">Bakiye</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <a href="login.html" class="btn btn-outline-primary me-2">Giriş</a>
+            <a href="register.html" class="btn btn-primary">Kayıt Ol</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Wallet Section -->
+  <div class="container py-5">
+    <h1 class="mb-4">Bakiye Yönetimi</h1>
+
+    <!-- Balance Card -->
+    <div class="balance-card">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h4>Mevcut Bakiyeniz</h4>
+          <div class="balance-amount">₺135.750</div>
+        </div>
+        <div class="col-md-6 text-md-end mt-3 mt-md-0">
+          <button class="btn btn-light btn-lg me-2" data-bs-toggle="modal" data-bs-target="#depositModal">
+            <i class="fas fa-plus-circle me-2"></i> Bakiye Yükle
+          </button>
+          <button class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#withdrawModal">
+            <i class="fas fa-minus-circle me-2"></i> Para Çek
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transactions Card -->
+    <div class="card mt-4">
+      <div class="card-header bg-white py-3">
+        <h4 class="mb-0">İşlem Geçmişi</h4>
+      </div>
+      <div class="card-body">
+        <!-- Transaction Filter -->
+        <div class="row mb-4">
+          <div class="col-md-4">
+            <label for="transactionType" class="form-label">İşlem Tipi</label>
+            <select class="form-select" id="transactionType">
+              <option value="all">Tümü</option>
+              <option value="deposit">Bakiye Yükleme</option>
+              <option value="withdrawal">Para Çekme</option>
+              <option value="payment">Alışveriş</option>
+              <option value="refund">İade</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="transactionDate" class="form-label">Tarih Aralığı</label>
+            <select class="form-select" id="transactionDate">
+              <option value="all">Tümü</option>
+              <option value="last-week">Son 1 Hafta</option>
+              <option value="last-month">Son 1 Ay</option>
+              <option value="last-year">Son 1 Yıl</option>
+            </select>
+          </div>
+          <div class="col-md-4 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary w-100">Filtrele</button>
+          </div>
+        </div>
+
+        <!-- Transaction Table -->
+        <div class="table-responsive">
+          <table class="table table-hover transaction-table">
+            <thead>
+              <tr>
+                <th>İşlem No</th>
+                <th>Tarih</th>
+                <th>Açıklama</th>
+                <th>Tutar</th>
+                <th>Tip</th>
+                <th>Durum</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#TRX123456</td>
+                <td>20.06.2023</td>
+                <td>Bakiye Yükleme - Havale</td>
+                <td class="text-success">+₺50.000</td>
+                <td><span class="badge bg-primary">Yükleme</span></td>
+                <td><span class="badge bg-success">Tamamlandı</span></td>
+              </tr>
+              <tr>
+                <td>#TRX123455</td>
+                <td>18.06.2023</td>
+                <td>Sipariş #87654321</td>
+                <td class="text-danger">-₺125.000</td>
+                <td><span class="badge bg-info">Alışveriş</span></td>
+                <td><span class="badge bg-success">Tamamlandı</span></td>
+              </tr>
+              <tr>
+                <td>#TRX123454</td>
+                <td>15.06.2023</td>
+                <td>Bakiye Yükleme - Kredi Kartı</td>
+                <td class="text-success">+₺100.000</td>
+                <td><span class="badge bg-primary">Yükleme</span></td>
+                <td><span class="badge bg-success">Tamamlandı</span></td>
+              </tr>
+              <tr>
+                <td>#TRX123453</td>
+                <td>10.06.2023</td>
+                <td>Para Çekme İşlemi</td>
+                <td class="text-danger">-₺20.000</td>
+                <td><span class="badge bg-warning text-dark">Para Çekme</span></td>
+                <td><span class="badge bg-success">Tamamlandı</span></td>
+              </tr>
+              <tr>
+                <td>#TRX123452</td>
+                <td>05.06.2023</td>
+                <td>Sipariş #87654319</td>
+                <td class="text-danger">-₺95.000</td>
+                <td><span class="badge bg-info">Alışveriş</span></td>
+                <td><span class="badge bg-success">Tamamlandı</span></td>
+              </tr>
+              <tr>
+                <td>#TRX123451</td>
+                <td>01.06.2023</td>
+                <td>Bakiye Yükleme - Havale</td>
+                <td class="text-success">+₺200.000</td>
+                <td><span class="badge bg-primary">Yükleme</span></td>
+                <td><span class="badge bg-success">Tamamlandı</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <nav class="mt-4">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Önceki</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Sonraki</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Deposit Modal -->
+  <div class="modal fade" id="depositModal" tabindex="-1" aria-labelledby="depositModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="depositModalLabel">Bakiye Yükle</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="depositAmount" class="form-label">Yüklenecek Tutar (₺)</label>
+              <input type="number" class="form-control" id="depositAmount" min="100" required>
+              <div class="form-text">Minimum yükleme tutarı 100₺'dir.</div>
+            </div>
+            <div class="mb-4">
+              <label for="paymentMethod" class="form-label">Ödeme Yöntemi</label>
+              <select class="form-select" id="paymentMethod" required>
+                <option value="">Seçiniz</option>
+                <option value="bank">Banka Havalesi</option>
+                <option value="credit">Kredi Kartı</option>
+                <option value="paytr">PayTR</option>
+              </select>
+            </div>
+
+            <!-- Bank Transfer Details (Hidden initially) -->
+            <div id="bankDetails" class="card mb-3 d-none">
+              <div class="card-body">
+                <h6 class="card-title">Banka Hesap Bilgileri</h6>
+                <p class="card-text mb-1">Banka: Ziraat Bankası</p>
+                <div class="input-group mb-1">
+                    <span class="input-group-text bg-light">Hesap Sahibi</span>
+                    <input type="text" class="form-control bg-light" value="Toptancı Platform A.Ş." readonly id="accountHolderCopy">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard('accountHolderCopy')">
+                      <i class="fas fa-copy"></i>
+                    </button>
+                  </div>
+                  <div class="input-group mb-2">
+                    <span class="input-group-text bg-light">IBAN</span>
+                    <input type="text" class="form-control bg-light" value="TR12 3456 7890 1234 5678 9012 34" readonly id="ibanCopy">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard('ibanCopy')">
+                      <i class="fas fa-copy"></i>
+                    </button>
+                  </div>
+                <p class="card-text text-danger mb-0">* Açıklama kısmına bayi kodunuzu yazınız.</p>
+              </div>
+            </div>
+
+            <!-- Credit Card Form (Hidden initially) -->
+            <div id="creditCardForm" class="d-none">
+              <div class="mb-3">
+                <label for="cardNumber" class="form-label">Kart Numarası</label>
+                <input type="text" class="form-control" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX">
+              </div>
+              <div class="row mb-3">
+                <div class="col-6">
+                  <label for="expiryDate" class="form-label">Son Kullanma</label>
+                  <input type="text" class="form-control" id="expiryDate" placeholder="AA/YY">
+                </div>
+                <div class="col-6">
+                  <label for="cvv" class="form-label">CVV</label>
+                  <input type="text" class="form-control" id="cvv" placeholder="XXX">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="cardName" class="form-label">Kart Üzerindeki İsim</label>
+                <input type="text" class="form-control" id="cardName">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+          <button type="button" class="btn btn-primary">Bakiye Yükle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Withdraw Modal -->
+  <div class="modal fade" id="withdrawModal" tabindex="-1" aria-labelledby="withdrawModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="withdrawModalLabel">Para Çekme</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="withdrawAmount" class="form-label">Çekilecek Tutar (₺)</label>
+              <input type="number" class="form-control" id="withdrawAmount" min="100" max="135750" required>
+              <div class="form-text">Minimum çekim tutarı 100₺'dir. Mevcut bakiyeniz: 135.750₺</div>
+            </div>
+            <div class="mb-3">
+              <label for="bankName" class="form-label">Banka Adı</label>
+              <input type="text" class="form-control" id="bankName" required>
+            </div>
+            <div class="mb-3">
+              <label for="accountHolder" class="form-label">Hesap Sahibi</label>
+              <input type="text" class="form-control" id="accountHolder" required>
+            </div>
+            <div class="mb-3">
+              <label for="iban" class="form-label">IBAN</label>
+              <input type="text" class="form-control" id="iban" required>
+            </div>
+            <div class="form-text text-danger mb-0">* Para çekme işlemleri 24-48 saat içinde tamamlanır.</div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+          <button type="button" class="btn btn-primary">Para Çek</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>İletişim</h5>
+          <address class="mb-0">
+            <p><i class="fas fa-map-marker-alt me-2"></i> Merkez Mah. Ticaret Cad. No:123</p>
+            <p><i class="fas fa-phone me-2"></i> (0212) 123 45 67</p>
+            <p><i class="fas fa-envelope me-2"></i> info@toptanciplatform.com</p>
+          </address>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Hızlı Linkler</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white">Ana Sayfa</a></li>
+            <li><a href="products.html" class="text-white">Ürünler</a></li>
+            <li><a href="#" class="text-white">Hakkımızda</a></li>
+            <li><a href="#" class="text-white">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Bültenimize Abone Olun</h5>
+          <p>Yeni ürünlerden ve kampanyalardan haberdar olun.</p>
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="E-posta adresiniz">
+            <button class="btn btn-primary" type="button">Abone Ol</button>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p class="mb-0">&copy; 2023 Cep Telefonu Toptancılığı Platformu. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+
+  <!-- Additional JS for wallet page -->
+  <script>
+    function copyToClipboard(id) {
+      const element = document.getElementById(id);
+      element.select();
+      document.execCommand('copy');
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      // Payment method toggle
+      const paymentMethod = document.getElementById('paymentMethod');
+      const bankDetails = document.getElementById('bankDetails');
+      const creditCardForm = document.getElementById('creditCardForm');
+
+      if (paymentMethod) {
+        paymentMethod.addEventListener('change', function() {
+          if (this.value === 'bank') {
+            bankDetails.classList.remove('d-none');
+            creditCardForm.classList.add('d-none');
+          } else if (this.value === 'credit') {
+            bankDetails.classList.add('d-none');
+            creditCardForm.classList.remove('d-none');
+          } else {
+            bankDetails.classList.add('d-none');
+            creditCardForm.classList.add('d-none');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

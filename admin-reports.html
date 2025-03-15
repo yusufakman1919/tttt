@@ -1,0 +1,655 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raporlar - Admin Paneli</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Özel CSS -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="admin-panel.html">
+          <img src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-smartphone-shop-sale-logo-design-png-image_5069958.jpg" alt="Logo" height="60">
+          <span class="ms-2">Admin Paneli</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="admin-panel.html">Gösterge Paneli</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-products.html">Ürün Yönetimi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-orders.html">Sipariş Yönetimi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-users.html">Kullanıcı Yönetimi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="admin-reports.html">Raporlar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-settings.html">Ayarlar</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <span class="text-white me-3">Admin Kullanıcı</span>
+            <div class="dropdown">
+              <button class="btn btn-outline-light dropdown-toggle" type="button" id="adminDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user-shield me-1"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
+                <li><a class="dropdown-item" href="admin-profile.html"><i class="fas fa-user-cog me-2"></i>Profil</a></li>
+                <li><a class="dropdown-item" href="admin-settings.html"><i class="fas fa-cogs me-2"></i>Ayarlar</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="index.html"><i class="fas fa-sign-out-alt me-2"></i>Çıkış</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container-fluid py-4">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-2 mb-4">
+        <div class="list-group shadow">
+          <a href="admin-panel.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-tachometer-alt me-2"></i> Gösterge Paneli
+          </a>
+          <a href="admin-products.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-mobile-alt me-2"></i> Ürün Yönetimi
+          </a>
+          <a href="admin-orders.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-shopping-cart me-2"></i> Sipariş Yönetimi
+          </a>
+          <a href="admin-users.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-users me-2"></i> Kullanıcı Yönetimi
+          </a>
+          <a href="admin-reports.html" class="list-group-item list-group-item-action active">
+            <i class="fas fa-chart-line me-2"></i> Raporlar
+          </a>
+          <a href="admin-settings.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-cogs me-2"></i> Ayarlar
+          </a>
+          <a href="admin-logs.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-history me-2"></i> Sistem Logları
+          </a>
+          <a href="admin-api.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-plug me-2"></i> API Yönetimi
+          </a>
+          <a href="admin-backup.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-database me-2"></i> Yedekleme
+          </a>
+        </div>
+      </div>
+
+      <!-- Reports Content -->
+      <div class="col-lg-10">
+        <h2 class="mb-4">Raporlar</h2>
+        
+        <!-- Report Types -->
+        <div class="card mb-4">
+          <div class="card-header bg-white py-3">
+            <h5 class="mb-0">Rapor Türleri</h5>
+          </div>
+          <div class="card-body">
+            <div class="row g-4">
+              <div class="col-md-3">
+                <div class="card h-100 shadow-sm">
+                  <div class="card-body text-center">
+                    <i class="fas fa-shopping-cart fa-3x text-primary mb-3"></i>
+                    <h5>Satış Raporları</h5>
+                    <p class="text-muted">Günlük, haftalık ve aylık satış istatistikleri</p>
+                    <a href="#sales-report" class="btn btn-primary">Görüntüle</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-3">
+                <div class="card h-100 shadow-sm">
+                  <div class="card-body text-center">
+                    <i class="fas fa-user-friends fa-3x text-success mb-3"></i>
+                    <h5>Müşteri Raporları</h5>
+                    <p class="text-muted">Bayi ve müşteri analizi</p>
+                    <a href="#customer-report" class="btn btn-success">Görüntüle</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-3">
+                <div class="card h-100 shadow-sm">
+                  <div class="card-body text-center">
+                    <i class="fas fa-mobile-alt fa-3x text-info mb-3"></i>
+                    <h5>Ürün Raporları</h5>
+                    <p class="text-muted">Ürün performansı ve stok durumu</p>
+                    <a href="#product-report" class="btn btn-info">Görüntüle</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-3">
+                <div class="card h-100 shadow-sm">
+                  <div class="card-body text-center">
+                    <i class="fas fa-hand-holding-usd fa-3x text-warning mb-3"></i>
+                    <h5>Gelir Raporları</h5>
+                    <p class="text-muted">Gelir ve gider analizi</p>
+                    <a href="#revenue-report" class="btn btn-warning">Görüntüle</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sales Report -->
+        <div id="sales-report" class="card mb-4">
+          <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Satış Raporu</h5>
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Günlük</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary active">Haftalık</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Aylık</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Yıllık</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row mb-4">
+              <div class="col-md-3">
+                <div class="card bg-primary text-white">
+                  <div class="card-body py-3">
+                    <h6 class="text-uppercase mb-2">Toplam Satış</h6>
+                    <h3 class="mb-0">₺785.500</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card bg-success text-white">
+                  <div class="card-body py-3">
+                    <h6 class="text-uppercase mb-2">Toplam Sipariş</h6>
+                    <h3 class="mb-0">125</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card bg-info text-white">
+                  <div class="card-body py-3">
+                    <h6 class="text-uppercase mb-2">Ortalama Sipariş</h6>
+                    <h3 class="mb-0">₺6.284</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card bg-warning text-white">
+                  <div class="card-body py-3">
+                    <h6 class="text-uppercase mb-2">Dönüşüm Oranı</h6>
+                    <h3 class="mb-0">4.5%</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <div class="chart-container" style="height: 300px;">
+                <!-- Burada Chart.js vb. ile grafik gösterilecek -->
+                <img src="https://via.placeholder.com/1200x300?text=Satış+Grafiği" alt="Satış Grafiği" class="img-fluid">
+              </div>
+            </div>
+            
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Tarih</th>
+                    <th>Sipariş Sayısı</th>
+                    <th>Toplam Satış</th>
+                    <th>Ortalama Sepet</th>
+                    <th>İptal Oranı</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>22.06.2023</td>
+                    <td>25</td>
+                    <td>₺145.750</td>
+                    <td>₺5.830</td>
+                    <td>2.4%</td>
+                  </tr>
+                  <tr>
+                    <td>21.06.2023</td>
+                    <td>18</td>
+                    <td>₺110.250</td>
+                    <td>₺6.125</td>
+                    <td>1.8%</td>
+                  </tr>
+                  <tr>
+                    <td>20.06.2023</td>
+                    <td>22</td>
+                    <td>₺134.500</td>
+                    <td>₺6.114</td>
+                    <td>3.2%</td>
+                  </tr>
+                  <tr>
+                    <td>19.06.2023</td>
+                    <td>19</td>
+                    <td>₺128.000</td>
+                    <td>₺6.737</td>
+                    <td>2.1%</td>
+                  </tr>
+                  <tr>
+                    <td>18.06.2023</td>
+                    <td>23</td>
+                    <td>₺142.000</td>
+                    <td>₺6.174</td>
+                    <td>2.8%</td>
+                  </tr>
+                  <tr>
+                    <td>17.06.2023</td>
+                    <td>15</td>
+                    <td>₺95.000</td>
+                    <td>₺6.333</td>
+                    <td>1.5%</td>
+                  </tr>
+                  <tr>
+                    <td>16.06.2023</td>
+                    <td>14</td>
+                    <td>₺87.500</td>
+                    <td>₺6.250</td>
+                    <td>2.2%</td>
+                  </tr>
+                </tbody>
+                <tfoot class="table-light">
+                  <tr>
+                    <th>Toplam</th>
+                    <th>136</th>
+                    <th>₺843.000</th>
+                    <th>₺6.199</th>
+                    <th>2.3%</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            
+            <div class="text-center mt-3">
+              <button type="button" class="btn btn-outline-success me-2">
+                <i class="fas fa-file-excel me-1"></i> Excel'e Aktar
+              </button>
+              <button type="button" class="btn btn-outline-danger">
+                <i class="fas fa-file-pdf me-1"></i> PDF'e Aktar
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product Report -->
+        <div id="product-report" class="card mb-4">
+          <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Ürün Raporu</h5>
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary active">Bu Ay</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Son 3 Ay</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Son 1 Yıl</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Ürün</th>
+                    <th>Kategori</th>
+                    <th>Satış Adedi</th>
+                    <th>Toplam Satış</th>
+                    <th>Ortalama Fiyat</th>
+                    <th>Stok Durumu</th>
+                    <th>Trend</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>iPhone 13 Pro (128GB)</td>
+                    <td>Apple</td>
+                    <td>215</td>
+                    <td>₺4.300.000</td>
+                    <td>₺20.000</td>
+                    <td><span class="badge bg-success">Yeterli</span></td>
+                    <td><i class="fas fa-arrow-up text-success"></i> 15%</td>
+                  </tr>
+                  <tr>
+                    <td>Samsung Galaxy S22</td>
+                    <td>Samsung</td>
+                    <td>187</td>
+                    <td>₺3.553.000</td>
+                    <td>₺19.000</td>
+                    <td><span class="badge bg-success">Yeterli</span></td>
+                    <td><i class="fas fa-arrow-up text-success"></i> 8%</td>
+                  </tr>
+                  <tr>
+                    <td>Xiaomi Redmi Note 11</td>
+                    <td>Xiaomi</td>
+                    <td>154</td>
+                    <td>₺1.232.000</td>
+                    <td>₺8.000</td>
+                    <td><span class="badge bg-warning text-dark">Az</span></td>
+                    <td><i class="fas fa-arrow-up text-success"></i> 12%</td>
+                  </tr>
+                  <tr>
+                    <td>Oppo Reno 7</td>
+                    <td>Oppo</td>
+                    <td>132</td>
+                    <td>₺1.254.000</td>
+                    <td>₺9.500</td>
+                    <td><span class="badge bg-success">Yeterli</span></td>
+                    <td><i class="fas fa-arrow-down text-danger"></i> 5%</td>
+                  </tr>
+                  <tr>
+                    <td>iPhone 12 (64GB)</td>
+                    <td>Apple</td>
+                    <td>118</td>
+                    <td>₺1.888.000</td>
+                    <td>₺16.000</td>
+                    <td><span class="badge bg-danger">Kritik</span></td>
+                    <td><i class="fas fa-arrow-down text-danger"></i> 10%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-header bg-white py-3">
+                    <h5 class="mb-0">Kategori Dağılımı</h5>
+                  </div>
+                  <div class="card-body">
+                    <div style="height: 300px;">
+                      <!-- Burada Chart.js vb. ile grafik gösterilecek -->
+                      <img src="https://via.placeholder.com/600x300?text=Kategori+Dağılımı" alt="Kategori Dağılımı" class="img-fluid">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-header bg-white py-3">
+                    <h5 class="mb-0">Stok Durumu</h5>
+                  </div>
+                  <div class="card-body">
+                    <div style="height: 300px;">
+                      <!-- Burada Chart.js vb. ile grafik gösterilecek -->
+                      <img src="https://via.placeholder.com/600x300?text=Stok+Durumu" alt="Stok Durumu" class="img-fluid">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Customer Report -->
+        <div id="customer-report" class="card mb-4">
+          <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Müşteri Raporu</h5>
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary active">Son 30 Gün</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Son 3 Ay</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Son 1 Yıl</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row mb-4">
+              <div class="col-md-3">
+                <div class="card bg-primary text-white">
+                  <div class="card-body py-3">
+                    <h6 class="text-uppercase mb-2">Toplam Müşteri</h6>
+                    <h3 class="mb-0">1,250</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card bg-success text-white">
+                  <div class="card-body py-3">
+                    <h6 class="text-uppercase mb-2">Aktif Müşteri</h6>
+                    <h3 class="mb-0">845</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card bg-info text-white">
+                  <div class="card-body py-3">
+                    <h6 class="text-uppercase mb-2">Yeni Müşteri</h6>
+                    <h3 class="mb-0">78</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card bg-warning text-white">
+                  <div class="card-body py-3">
+                    <h6 class="text-uppercase mb-2">Müşteri Kaybı</h6>
+                    <h3 class="mb-0">2.3%</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card mb-4">
+                  <div class="card-header bg-white py-3">
+                    <h5 class="mb-0">Müşteri Segmentasyonu</h5>
+                  </div>
+                  <div class="card-body">
+                    <div style="height: 300px;">
+                      <img src="https://via.placeholder.com/600x300?text=Müşteri+Segmentasyonu" alt="Müşteri Segmentasyonu" class="img-fluid">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card mb-4">
+                  <div class="card-header bg-white py-3">
+                    <h5 class="mb-0">Müşteri Aktivitesi</h5>
+                  </div>
+                  <div class="card-body">
+                    <div style="height: 300px;">
+                      <img src="https://via.placeholder.com/600x300?text=Müşteri+Aktivitesi" alt="Müşteri Aktivitesi" class="img-fluid">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                  <tr>
+                    <th>Müşteri Adı</th>
+                    <th>Şehir</th>
+                    <th>Sipariş Sayısı</th>
+                    <th>Toplam Harcama</th>
+                    <th>Ort. Sipariş Değeri</th>
+                    <th>Son Sipariş</th>
+                    <th>Durum</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Ahmet Teknoloji Ltd.</td>
+                    <td>İstanbul</td>
+                    <td>45</td>
+                    <td>₺850.250</td>
+                    <td>₺18.894</td>
+                    <td>21.06.2023</td>
+                    <td><span class="badge bg-success">Aktif</span></td>
+                  </tr>
+                  <tr>
+                    <td>Yıldız Elektronik A.Ş.</td>
+                    <td>Ankara</td>
+                    <td>38</td>
+                    <td>₺720.450</td>
+                    <td>₺18.959</td>
+                    <td>22.06.2023</td>
+                    <td><span class="badge bg-success">Aktif</span></td>
+                  </tr>
+                  <tr>
+                    <td>Mega Telefon Dağıtım</td>
+                    <td>İzmir</td>
+                    <td>32</td>
+                    <td>₺605.800</td>
+                    <td>₺18.931</td>
+                    <td>20.06.2023</td>
+                    <td><span class="badge bg-success">Aktif</span></td>
+                  </tr>
+                  <tr>
+                    <td>Tekno Market</td>
+                    <td>Bursa</td>
+                    <td>28</td>
+                    <td>₺510.500</td>
+                    <td>₺18.232</td>
+                    <td>15.06.2023</td>
+                    <td><span class="badge bg-warning text-dark">Pasif</span></td>
+                  </tr>
+                  <tr>
+                    <td>Cep Dünyası</td>
+                    <td>Antalya</td>
+                    <td>25</td>
+                    <td>₺478.750</td>
+                    <td>₺19.150</td>
+                    <td>18.06.2023</td>
+                    <td><span class="badge bg-success">Aktif</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Revenue Report -->
+        <div id="revenue-report" class="card mb-4">
+          <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Gelir Raporu</h5>
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Bu Ay</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary active">Bu Çeyrek</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Bu Yıl</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row mb-4">
+              <div class="col-md-3">
+                <div class="card bg-success text-white">
+                  <div class="card-body py-3">
+                    <h6 class="text-uppercase mb-2">Toplam Gelir</h6>
+                    <h3 class="mb-0">₺12.450.750</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card bg-danger text-white">
+                  <div class="card-body py-3">
+                    <h6 class="text-uppercase mb-2">Toplam Gider</h6>
+                    <h3 class="mb-0">₺10.125.300</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card bg-primary text-white">
+                  <div class="card-body py-3">
+                    <h6 class="text-uppercase mb-2">Net Kar</h6>
+                    <h3 class="mb-0">₺2.325.450</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card bg-info text-white">
+                  <div class="card-body py-3">
+                    <h6 class="text-uppercase mb-2">Kar Marjı</h6>
+                    <h3 class="mb-0">18.7%</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <div class="chart-container" style="height: 300px;">
+                <img src="https://via.placeholder.com/1200x300?text=Gelir+ve+Gider+Grafiği" alt="Gelir ve Gider Grafiği" class="img-fluid">
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card mb-4">
+                  <div class="card-header bg-white py-3">
+                    <h5 class="mb-0">Kategoriye Göre Karlılık</h5>
+                  </div>
+                  <div class="card-body">
+                    <div style="height: 300px;">
+                      <img src="https://via.placeholder.com/600x300?text=Kategoriye+Göre+Karlılık" alt="Kategoriye Göre Karlılık" class="img-fluid">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card mb-4">
+                  <div class="card-header bg-white py-3">
+                    <h5 class="mb-0">Aylık Trend</h5>
+                  </div>
+                  <div class="card-body">
+                    <div style="height: 300px;">
+                      <img src="https://via.placeholder.com/600x300?text=Aylık+Trend" alt="Aylık Trend" class="img-fluid">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="text-center mt-3">
+              <button type="button" class="btn btn-outline-success me-2">
+                <i class="fas fa-file-excel me-1"></i> Excel'e Aktar
+              </button>
+              <button type="button" class="btn btn-outline-danger">
+                <i class="fas fa-file-pdf me-1"></i> PDF'e Aktar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2023 Cep Telefonu Toptancılığı Platformu - Admin Paneli</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="mb-0">Versiyon 1.0.0</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yedekleme - Cep Telefonu Toptancılığı</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Özel CSS -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="admin-panel.html">
+          <img src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-smartphone-shop-sale-logo-design-png-image_5069958.jpg" alt="Logo" height="60">
+          <span class="ms-2">Admin Paneli</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="admin-panel.html">Gösterge Paneli</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-products.html">Ürün Yönetimi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-orders.html">Sipariş Yönetimi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-users.html">Kullanıcı Yönetimi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-reports.html">Raporlar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-settings.html">Ayarlar</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <span class="text-white me-3">Admin Kullanıcı</span>
+            <div class="dropdown">
+              <button class="btn btn-outline-light dropdown-toggle" type="button" id="adminDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user-shield me-1"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
+                <li><a class="dropdown-item" href="admin-profile.html"><i class="fas fa-user-cog me-2"></i>Profil</a></li>
+                <li><a class="dropdown-item" href="admin-settings.html"><i class="fas fa-cogs me-2"></i>Ayarlar</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="index.html"><i class="fas fa-sign-out-alt me-2"></i>Çıkış</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container-fluid py-4">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-2 mb-4">
+        <div class="list-group shadow">
+          <a href="admin-panel.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-tachometer-alt me-2"></i> Gösterge Paneli
+          </a>
+          <a href="admin-products.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-mobile-alt me-2"></i> Ürün Yönetimi
+          </a>
+          <a href="admin-orders.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-shopping-cart me-2"></i> Sipariş Yönetimi
+          </a>
+          <a href="admin-users.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-users me-2"></i> Kullanıcı Yönetimi
+          </a>
+          <a href="admin-reports.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-chart-line me-2"></i> Raporlar
+          </a>
+          <a href="admin-settings.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-cogs me-2"></i> Ayarlar
+          </a>
+          <a href="admin-logs.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-history me-2"></i> Sistem Logları
+          </a>
+          <a href="admin-api.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-plug me-2"></i> API Yönetimi
+          </a>
+          <a href="admin-backup.html" class="list-group-item list-group-item-action active">
+            <i class="fas fa-database me-2"></i> Yedekleme
+          </a>
+        </div>
+      </div>
+
+      <!-- Dashboard Content -->
+      <div class="col-lg-10">
+        <h2 class="mb-4">Sistem Yedekleme</h2>
+        
+        <!-- Yedekleme Durumu -->
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header bg-white py-3">
+                <h5 class="mb-0">Yedekleme Durumu</h5>
+              </div>
+              <div class="card-body">
+                <div class="alert alert-success mb-3">
+                  <div class="d-flex align-items-center">
+                    <i class="fas fa-check-circle fs-4 me-2"></i>
+                    <div>
+                      <strong>Yedekleme Sistemi Aktif</strong>
+                      <p class="mb-0">Son başarılı yedekleme: 22.06.2023 03:15</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span>Yedek Depolama Alanı</span>
+                    <span>745 GB / 1 TB</span>
+                  </div>
+                  <div class="progress" style="height: 10px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 74.5%"></div>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <div class="card h-100 bg-light">
+                      <div class="card-body">
+                        <h6 class="mb-2">Toplam Yedek</h6>
+                        <div class="d-flex align-items-center">
+                          <i class="fas fa-save fa-2x text-primary me-3"></i>
+                          <h4 class="mb-0">256</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="card h-100 bg-light">
+                      <div class="card-body">
+                        <h6 class="mb-2">Otomatik Yedekler</h6>
+                        <div class="d-flex align-items-center">
+                          <i class="fas fa-sync-alt fa-2x text-success me-3"></i>
+                          <h4 class="mb-0">Günlük</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-header bg-white py-3">
+                <h5 class="mb-0">Manuel Yedekleme</h5>
+              </div>
+              <div class="card-body">
+                <p>Şu anki sistem durumunun manuel olarak yedeğini alın:</p>
+                
+                <form>
+                  <div class="mb-3">
+                    <label for="backupName" class="form-label">Yedek Adı</label>
+                    <input type="text" class="form-control" id="backupName" placeholder="Manuel Yedek - 22.06.2023">
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label for="backupType" class="form-label">Yedek Türü</label>
+                    <select class="form-select" id="backupType">
+                      <option value="full">Tam Yedek</option>
+                      <option value="data">Sadece Veri</option>
+                      <option value="config">Sadece Konfigürasyon</option>
+                      <option value="files">Sadece Dosyalar</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="compressBackup" checked>
+                    <label class="form-check-label" for="compressBackup">
+                      Yedekleri sıkıştır (.zip formatında)
+                    </label>
+                  </div>
+                  
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="encryptBackup">
+                    <label class="form-check-label" for="encryptBackup">
+                      Yedekleri şifrele
+                    </label>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-download me-1"></i> Yedeklemeyi Başlat
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Yedekleme Ayarları ve Geçmiş -->
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <div class="card-header bg-white py-3">
+                <h5 class="mb-0">Yedekleme Ayarları</h5>
+              </div>
+              <div class="card-body">
+                <form>
+                  <div class="mb-3">
+                    <label class="form-label">Otomatik Yedekleme Sıklığı</label>
+                    <div class="form-check mb-2">
+                      <input class="form-check-input" type="radio" name="backupFrequency" id="dailyBackup" checked>
+                      <label class="form-check-label" for="dailyBackup">
+                        Günlük (03:00'da)
+                      </label>
+                    </div>
+                    <div class="form-check mb-2">
+                      <input class="form-check-input" type="radio" name="backupFrequency" id="weeklyBackup">
+                      <label class="form-check-label" for="weeklyBackup">
+                        Haftalık (Pazar, 03:00'da)
+                      </label>
+                    </div>
+                    <div class="form-check mb-2">
+                      <input class="form-check-input" type="radio" name="backupFrequency" id="customBackup">
+                      <label class="form-check-label" for="customBackup">
+                        Özel
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label for="backupRetention" class="form-label">Yedekleri Saklama Süresi</label>
+                    <select class="form-select" id="backupRetention">
+                      <option value="7">1 Hafta</option>
+                      <option value="30" selected>1 Ay</option>
+                      <option value="90">3 Ay</option>
+                      <option value="180">6 Ay</option>
+                      <option value="365">1 Yıl</option>
+                      <option value="0">Sınırsız</option>
+                    </select>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label for="backupStorage" class="form-label">Yedekleme Konumu</label>
+                    <select class="form-select" id="backupStorage">
+                      <option value="local" selected>Yerel Depolama</option>
+                      <option value="cloud">Bulut Depolama</option>
+                      <option value="both">Yerel ve Bulut</option>
+                    </select>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label for="cloudStorage" class="form-label">Bulut Depolama Servisi</label>
+                    <select class="form-select" id="cloudStorage">
+                      <option value="aws">Amazon S3</option>
+                      <option value="gcloud">Google Cloud Storage</option>
+                      <option value="azure">Microsoft Azure Blob</option>
+                      <option value="dropbox">Dropbox</option>
+                    </select>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="notifyBackupSuccess">
+                      <label class="form-check-label" for="notifyBackupSuccess">
+                        Başarılı yedeklemeler için bildirim gönder
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="notifyBackupFailure" checked>
+                      <label class="form-check-label" for="notifyBackupFailure">
+                        Başarısız yedeklemeler için bildirim gönder
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary">Ayarları Kaydet</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 mb-4">
+            <div class="card">
+              <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Yedekleme Geçmişi</h5>
+                <div class="input-group" style="width: 50%;">
+                  <input type="text" class="form-control form-control-sm" placeholder="Yedek ara...">
+                  <button class="btn btn-outline-secondary btn-sm" type="button">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table table-hover mb-0">
+                    <thead>
+                      <tr>
+                        <th>Yedek Adı</th>
+                        <th>Tarih</th>
+                        <th>Boyut</th>
+                        <th>Tür</th>
+                        <th>İşlemler</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Otomatik Yedek</td>
+                        <td>22.06.2023 03:15</td>
+                        <td>4.2 GB</td>
+                        <td><span class="badge bg-primary">Tam</span></td>
+                        <td>
+                          <div class="btn-group btn-group-sm">
+                            <button class="btn btn-outline-primary"><i class="fas fa-download"></i></button>
+                            <button class="btn btn-outline-success"><i class="fas fa-sync-alt"></i></button>
+                            <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Güncelleme Öncesi</td>
+                        <td>21.06.2023 15:30</td>
+                        <td>4.1 GB</td>
+                        <td><span class="badge bg-primary">Tam</span></td>
+                        <td>
+                          <div class="btn-group btn-group-sm">
+                            <button class="btn btn-outline-primary"><i class="fas fa-download"></i></button>
+                            <button class="btn btn-outline-success"><i class="fas fa-sync-alt"></i></button>
+                            <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Otomatik Yedek</td>
+                        <td>21.06.2023 03:15</td>
+                        <td>4.1 GB</td>
+                        <td><span class="badge bg-primary">Tam</span></td>
+                        <td>
+                          <div class="btn-group btn-group-sm">
+                            <button class="btn btn-outline-primary"><i class="fas fa-download"></i></button>
+                            <button class="btn btn-outline-success"><i class="fas fa-sync-alt"></i></button>
+                            <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Otomatik Yedek</td>
+                        <td>20.06.2023 03:15</td>
+                        <td>4.0 GB</td>
+                        <td><span class="badge bg-primary">Tam</span></td>
+                        <td>
+                          <div class="btn-group btn-group-sm">
+                            <button class="btn btn-outline-primary"><i class="fas fa-download"></i></button>
+                            <button class="btn btn-outline-success"><i class="fas fa-sync-alt"></i></button>
+                            <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Konfigürasyon Yedek</td>
+                        <td>19.06.2023 10:45</td>
+                        <td>15 MB</td>
+                        <td><span class="badge bg-info">Konfigürasyon</span></td>
+                        <td>
+                          <div class="btn-group btn-group-sm">
+                            <button class="btn btn-outline-primary"><i class="fas fa-download"></i></button>
+                            <button class="btn btn-outline-success"><i class="fas fa-sync-alt"></i></button>
+                            <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Otomatik Yedek</td>
+                        <td>19.06.2023 03:15</td>
+                        <td>3.9 GB</td>
+                        <td><span class="badge bg-primary">Tam</span></td>
+                        <td>
+                          <div class="btn-group btn-group-sm">
+                            <button class="btn btn-outline-primary"><i class="fas fa-download"></i></button>
+                            <button class="btn btn-outline-success"><i class="fas fa-sync-alt"></i></button>
+                            <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="card-footer bg-white text-center">
+                <nav>
+                  <ul class="pagination pagination-sm justify-content-center mb-0">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#" tabindex="-1">Önceki</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">Sonraki</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            
+            <!-- Restore Modal -->
+            <div class="modal fade" id="restoreModal" tabindex="-1" aria-labelledby="restoreModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="restoreModalLabel">Sistem Geri Yükleme</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="alert alert-warning">
+                      <i class="fas fa-exclamation-triangle me-2"></i>
+                      <strong>Uyarı:</strong> Geri yükleme işlemi mevcut verilerin üzerine yazacaktır. Bu işlem geri alınamaz.
+                    </div>
+                    <p>Aşağıdaki yedeği geri yüklemek istediğinizden emin misiniz?</p>
+                    <p><strong>Yedek:</strong> Otomatik Yedek (22.06.2023 03:15)</p>
+                    
+                    <div class="mb-3">
+                      <label for="restoreOptions" class="form-label">Geri Yükleme Seçenekleri</label>
+                      <select class="form-select" id="restoreOptions">
+                        <option value="full">Tam Geri Yükleme</option>
+                        <option value="data">Sadece Veri</option>
+                        <option value="config">Sadece Konfigürasyon</option>
+                        <option value="selectTables">Belirli Tabloları Seç</option>
+                      </select>
+                    </div>
+                    
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="checkbox" id="overwriteConfirm">
+                      <label class="form-check-label" for="overwriteConfirm">
+                        Mevcut verilerin üzerine yazılmasını onaylıyorum.
+                      </label>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-danger">Geri Yükle</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2023 Cep Telefonu Toptancılığı Platformu - Admin Paneli</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="mb-0">Versiyon 1.0.0</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>

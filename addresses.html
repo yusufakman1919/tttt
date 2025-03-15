@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adreslerim - Cep Telefonu Toptancılığı</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Özel CSS -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-smartphone-shop-sale-logo-design-png-image_5069958.jpg" alt="Logo" height="60">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Ana Sayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Ürünler</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="orders.html">Siparişlerim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html">Bakiye</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <div class="dropdown">
+              <button class="btn btn-outline-primary dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://via.placeholder.com/30x30" alt="User" class="rounded-circle me-2">
+                Ahmet Yılmaz
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                <li><a class="dropdown-item" href="user-panel.html"><i class="fas fa-user-cog me-2"></i>Hesabım</a></li>
+                <li><a class="dropdown-item" href="#favorites"><i class="fas fa-heart me-2"></i>Favorilerim</a></li>
+                <li><a class="dropdown-item" href="orders.html"><i class="fas fa-shopping-cart me-2"></i>Siparişlerim</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="index.html"><i class="fas fa-sign-out-alt me-2"></i>Çıkış</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container py-4">
+    <h2 class="mb-4">Adreslerim</h2>
+    
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-3 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <img src="https://via.placeholder.com/150x150" alt="User" class="rounded-circle mb-3" width="100">
+            <h5>Ahmet Yılmaz</h5>
+            <p class="text-muted">Bayi: ABC Telefon</p>
+            <div class="d-grid gap-2">
+              <a href="#profile-edit" class="btn btn-sm btn-outline-primary">Profili Düzenle</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="list-group mt-4 shadow">
+          <a href="user-panel.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-tachometer-alt me-2"></i> Gösterge Paneli
+          </a>
+          <a href="profile.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-user me-2"></i> Profil Bilgileri
+          </a>
+          <a href="orders.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-shopping-cart me-2"></i> Siparişlerim
+          </a>
+          <a href="wallet.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-wallet me-2"></i> Bakiye İşlemleri
+          </a>
+          <a href="#favorites" class="list-group-item list-group-item-action">
+            <i class="fas fa-heart me-2"></i> Favorilerim
+          </a>
+          <a href="addresses.html" class="list-group-item list-group-item-action active">
+            <i class="fas fa-map-marker-alt me-2"></i> Adreslerim
+          </a>
+          <a href="settings.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-cog me-2"></i> Hesap Ayarları
+          </a>
+        </div>
+      </div>
+      
+      <!-- Addresses Content -->
+      <div class="col-lg-9">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h4>Kayıtlı Adresleriniz</h4>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAddressModal">
+            <i class="fas fa-plus me-1"></i> Yeni Adres Ekle
+          </button>
+        </div>
+        
+        <div class="row">
+          <!-- Fatura Adresi -->
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Fatura Adresi</h5>
+                <span class="badge bg-primary">Varsayılan</span>
+              </div>
+              <div class="card-body">
+                <h6>ABC Telefon</h6>
+                <p>Ahmet Yılmaz</p>
+                <p>Atatürk Mah. İstiklal Cad. No:42 D:5</p>
+                <p>Şişli / İstanbul</p>
+                <p>Telefon: 0532 123 45 67</p>
+                <p>Vergi Dairesi: Şişli</p>
+                <p>Vergi No: 1234567890</p>
+              </div>
+              <div class="card-footer bg-white d-flex justify-content-end">
+                <button class="btn btn-sm btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editAddressModal">
+                  <i class="fas fa-edit me-1"></i> Düzenle
+                </button>
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="fas fa-trash me-1"></i> Sil
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Teslimat Adresi -->
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Teslimat Adresi</h5>
+                <span class="badge bg-primary">Varsayılan</span>
+              </div>
+              <div class="card-body">
+                <h6>ABC Telefon Depo</h6>
+                <p>Ahmet Yılmaz</p>
+                <p>Merkez Mah. Sanayi Cad. No:15</p>
+                <p>Kağıthane / İstanbul</p>
+                <p>Telefon: 0532 123 45 67</p>
+              </div>
+              <div class="card-footer bg-white d-flex justify-content-end">
+                <button class="btn btn-sm btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editAddressModal">
+                  <i class="fas fa-edit me-1"></i> Düzenle
+                </button>
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="fas fa-trash me-1"></i> Sil
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Ek Adres -->
+          <div class="col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Şube Adresi</h5>
+                <span class="badge bg-secondary">Ek Adres</span>
+              </div>
+              <div class="card-body">
+                <h6>ABC Telefon Şube</h6>
+                <p>Mehmet Demir</p>
+                <p>Yeni Mah. Bağdat Cad. No:78</p>
+                <p>Kadıköy / İstanbul</p>
+                <p>Telefon: 0533 765 43 21</p>
+              </div>
+              <div class="card-footer bg-white d-flex justify-content-end">
+                <button class="btn btn-sm btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editAddressModal">
+                  <i class="fas fa-edit me-1"></i> Düzenle
+                </button>
+                <button class="btn btn-sm btn-outline-danger">
+                  <i class="fas fa-trash me-1"></i> Sil
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Yeni Adres Ekle Modal -->
+  <div class="modal fade" id="addAddressModal" tabindex="-1" aria-labelledby="addAddressModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addAddressModalLabel">Yeni Adres Ekle</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body">
+          <form id="addAddressForm" class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="addressTitle" class="form-label">Adres Başlığı</label>
+                <input type="text" class="form-control" id="addressTitle" name="addressTitle" placeholder="Ev, İş, vb." required>
+              </div>
+              <div class="col-md-6">
+                <label for="addressType" class="form-label">Adres Tipi</label>
+                <select class="form-select" id="addressType" name="addressType" required>
+                  <option value="" selected disabled>Seçiniz</option>
+                  <option value="invoice">Fatura Adresi</option>
+                  <option value="shipping">Teslimat Adresi</option>
+                  <option value="both">Her İkisi de</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="fullName" class="form-label">Ad Soyad</label>
+                <input type="text" class="form-control" id="fullName" name="fullName" required>
+              </div>
+              <div class="col-md-6">
+                <label for="phone" class="form-label">Telefon</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required>
+              </div>
+              <div class="col-md-6">
+                <label for="company" class="form-label">Şirket Adı</label>
+                <input type="text" class="form-control" id="company" name="company">
+              </div>
+              <div class="col-md-6">
+                <label for="taxOffice" class="form-label">Vergi Dairesi</label>
+                <input type="text" class="form-control" id="taxOffice" name="taxOffice">
+              </div>
+              <div class="col-md-6">
+                <label for="taxId" class="form-label">Vergi No / TC Kimlik No</label>
+                <input type="text" class="form-control" id="taxId" name="taxId">
+              </div>
+              <div class="col-md-6">
+                <label for="city" class="form-label">İl</label>
+                <select class="form-select" id="city" name="city" required>
+                  <option value="" selected disabled>Seçiniz</option>
+                  <option value="istanbul">İstanbul</option>
+                  <option value="ankara">Ankara</option>
+                  <option value="izmir">İzmir</option>
+                  <!-- Diğer iller -->
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="district" class="form-label">İlçe</label>
+                <select class="form-select" id="district" name="district" required>
+                  <option value="" selected disabled>Önce İl Seçiniz</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="zipCode" class="form-label">Posta Kodu</label>
+                <input type="text" class="form-control" id="zipCode" name="zipCode" required>
+              </div>
+              <div class="col-12">
+                <label for="addressDetail" class="form-label">Adres Detayı</label>
+                <textarea class="form-control" id="addressDetail" name="addressDetail" rows="3" required></textarea>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="isDefault" name="isDefault">
+                  <label class="form-check-label" for="isDefault">
+                    Bu adresi varsayılan olarak ayarla
+                  </label>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+          <button type="submit" form="addAddressForm" class="btn btn-primary">Kaydet</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Adres Düzenle Modal -->
+  <div class="modal fade" id="editAddressModal" tabindex="-1" aria-labelledby="editAddressModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editAddressModalLabel">Adres Düzenle</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Adres düzenleme formunun içeriği addAddressForm ile aynı olacak, sadece önceden doldurulmuş olacak -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+          <button type="button" class="btn btn-primary">Kaydet</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>İletişim</h5>
+          <address class="mb-0">
+            <p><i class="fas fa-map-marker-alt me-2"></i> Merkez Mah. Ticaret Cad. No:123</p>
+            <p><i class="fas fa-phone me-2"></i> (0212) 123 45 67</p>
+            <p><i class="fas fa-envelope me-2"></i> info@toptanciplatform.com</p>
+          </address>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Hızlı Linkler</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white">Ana Sayfa</a></li>
+            <li><a href="products.html" class="text-white">Ürünler</a></li>
+            <li><a href="#" class="text-white">Hakkımızda</a></li>
+            <li><a href="#" class="text-white">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Bültenimize Abone Olun</h5>
+          <p>Yeni ürünlerden ve kampanyalardan haberdar olun.</p>
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="E-posta adresiniz">
+            <button class="btn btn-primary" type="button">Abone Ol</button>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p class="mb-0">&copy; 2023 Cep Telefonu Toptancılığı Platformu. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,627 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ödeme - Cep Telefonu Toptancılığı</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Özel CSS -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-smartphone-shop-sale-logo-design-png-image_5069958.jpg" alt="Logo" height="60">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Ana Sayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Ürünler</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="orders.html">Siparişlerim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html">Bakiye</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <a href="cart.html" class="btn btn-outline-primary position-relative me-2">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                3
+              </span>
+            </a>
+            <a href="login.html" class="btn btn-outline-primary me-2">Giriş</a>
+            <a href="register.html" class="btn btn-primary">Kayıt Ol</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Checkout Section -->
+  <div class="container py-5">
+    <h1 class="mb-4">Ödeme</h1>
+    
+    <!-- Progress Bar -->
+    <div class="card mb-4">
+      <div class="card-body p-4">
+        <div class="row">
+          <div class="col-12">
+            <ul class="checkout-steps d-flex justify-content-between mb-0 text-center">
+              <li class="checkout-step completed">
+                <div class="step-icon">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+                <span class="step-text d-none d-md-block">Sepet</span>
+              </li>
+              <li class="checkout-step active">
+                <div class="step-icon">
+                  <i class="fas fa-credit-card"></i>
+                </div>
+                <span class="step-text d-none d-md-block">Ödeme</span>
+              </li>
+              <li class="checkout-step">
+                <div class="step-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <span class="step-text d-none d-md-block">Onay</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <!-- Checkout Form -->
+      <div class="col-lg-8">
+        <form id="checkoutForm">
+          <!-- Teslimat Bilgileri -->
+          <div class="card mb-4">
+            <div class="card-header bg-white py-3">
+              <h5 class="mb-0">Teslimat Bilgileri</h5>
+            </div>
+            <div class="card-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="firstName" class="form-label">Ad</label>
+                  <input type="text" class="form-control" id="firstName" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="lastName" class="form-label">Soyad</label>
+                  <input type="text" class="form-control" id="lastName" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="phone" class="form-label">Telefon</label>
+                  <input type="tel" class="form-control" id="phone" placeholder="(___) ___ __ __" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">E-posta</label>
+                  <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="col-12">
+                  <label for="address" class="form-label">Adres</label>
+                  <input type="text" class="form-control" id="address" placeholder="Sokak, Mahalle, Bina No, Daire" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="province" class="form-label">İl</label>
+                  <select class="form-select" id="province" required>
+                    <option value="" selected disabled>Seçiniz</option>
+                    <option value="istanbul">İstanbul</option>
+                    <option value="ankara">Ankara</option>
+                    <option value="izmir">İzmir</option>
+                    <option value="bursa">Bursa</option>
+                    <option value="antalya">Antalya</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="district" class="form-label">İlçe</label>
+                  <select class="form-select" id="district" required>
+                    <option value="" selected disabled>Önce il seçiniz</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="postalCode" class="form-label">Posta Kodu</label>
+                  <input type="text" class="form-control" id="postalCode" required>
+                </div>
+                <div class="col-12">
+                  <label for="notes" class="form-label">Sipariş Notu (Opsiyonel)</label>
+                  <textarea class="form-control" id="notes" rows="3" placeholder="Teslimat ile ilgili özel notlarınız"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Ödeme Yöntemleri -->
+          <div class="card mb-4">
+            <div class="card-header bg-white py-3">
+              <h5 class="mb-0">Ödeme Yöntemi</h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12">
+                  <div class="nav nav-pills mb-4" id="paymentTabs" role="tablist">
+                    <div class="nav-item" role="presentation">
+                      <button class="nav-link active" id="credit-card-tab" data-bs-toggle="tab" data-bs-target="#credit-card" type="button" role="tab" aria-controls="credit-card" aria-selected="true">
+                        <i class="fas fa-credit-card me-2"></i> Kredi Kartı
+                      </button>
+                    </div>
+                    <div class="nav-item" role="presentation">
+                      <button class="nav-link" id="transfer-tab" data-bs-toggle="tab" data-bs-target="#transfer" type="button" role="tab" aria-controls="transfer" aria-selected="false">
+                        <i class="fas fa-money-bill-wave me-2"></i> Havale/EFT
+                      </button>
+                    </div>
+                    <div class="nav-item" role="presentation">
+                      <button class="nav-link" id="wallet-tab" data-bs-toggle="tab" data-bs-target="#wallet" type="button" role="tab" aria-controls="wallet" aria-selected="false">
+                        <i class="fas fa-wallet me-2"></i> Bakiye
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div class="tab-content" id="paymentTabContent">
+                    <!-- Kredi Kartı -->
+                    <div class="tab-pane fade show active" id="credit-card" role="tabpanel" aria-labelledby="credit-card-tab">
+                      <div class="row g-3">
+                        <div class="col-12">
+                          <label for="cardName" class="form-label">Kart Üzerindeki İsim</label>
+                          <input type="text" class="form-control" id="cardName" placeholder="Kart sahibinin adı">
+                        </div>
+                        <div class="col-12">
+                          <label for="cardNumber" class="form-label">Kart Numarası</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="cardNumber" placeholder="0000 0000 0000 0000">
+                            <span class="input-group-text">
+                              <i class="fab fa-cc-visa mx-1"></i>
+                              <i class="fab fa-cc-mastercard mx-1"></i>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="cardExpiry" class="form-label">Son Kullanma Tarihi</label>
+                          <input type="text" class="form-control" id="cardExpiry" placeholder="AA/YY">
+                        </div>
+                        <div class="col-md-6">
+                          <label for="cardCvc" class="form-label">CVV/CVC</label>
+                          <input type="text" class="form-control" id="cardCvc" placeholder="000">
+                        </div>
+                        <div class="col-12">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="installment">
+                            <label class="form-check-label" for="installment">
+                              Taksit Seçenekleri
+                            </label>
+                          </div>
+                        </div>
+                        
+                        <!-- Taksit Seçenekleri (Varsayılan olarak gizli) -->
+                        <div class="col-12 installment-options d-none">
+                          <label class="form-label">Taksit Seçenekleri</label>
+                          <div class="table-responsive">
+                            <table class="table table-bordered table-sm">
+                              <thead>
+                                <tr>
+                                  <th>Taksit</th>
+                                  <th>Tutar</th>
+                                  <th>Toplam</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="installmentOption" id="inst0" value="0" checked>
+                                      <label class="form-check-label" for="inst0">Tek Çekim</label>
+                                    </div>
+                                  </td>
+                                  <td>₺88.995</td>
+                                  <td>₺88.995</td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="installmentOption" id="inst3" value="3">
+                                      <label class="form-check-label" for="inst3">3 Taksit</label>
+                                    </div>
+                                  </td>
+                                  <td>₺29.665</td>
+                                  <td>₺88.995</td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="installmentOption" id="inst6" value="6">
+                                      <label class="form-check-label" for="inst6">6 Taksit</label>
+                                    </div>
+                                  </td>
+                                  <td>₺14.833</td>
+                                  <td>₺88.995</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Havale/EFT -->
+                    <div class="tab-pane fade" id="transfer" role="tabpanel" aria-labelledby="transfer-tab">
+                      <div class="alert alert-info">
+                        <p class="mb-2"><i class="fas fa-info-circle me-2"></i> Siparişiniz aşağıdaki hesaba ödeme yaptıktan sonra onaylanacaktır.</p>
+                        <p class="mb-1">Ödeme sonrası dekont numaranızı sipariş detaylarından iletebilirsiniz.</p>
+                      </div>
+                      
+                      <div class="card">
+                        <div class="card-body">
+                          <h6 class="card-title">Banka Hesap Bilgileri</h6>
+                          <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                              <label class="form-label mb-0 text-muted">IBAN</label>
+                              <div>
+                                <input type="text" id="ibanNumber" class="form-control-plaintext text-end border-0 p-0 fs-6 fw-bold" value="TR12 0001 2345 6789 0123 4567 89" readonly>
+                                <button class="btn btn-sm btn-outline-primary copy-btn" onclick="copyToClipboard('ibanNumber')">
+                                  <i class="far fa-copy"></i> Kopyala
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                              <label class="form-label mb-0 text-muted">Hesap Sahibi</label>
+                              <div>
+                                <input type="text" id="accountHolder" class="form-control-plaintext text-end border-0 p-0 fs-6 fw-bold" value="Cep Telefonu Toptancılığı A.Ş." readonly>
+                                <button class="btn btn-sm btn-outline-primary copy-btn" onclick="copyToClipboard('accountHolder')">
+                                  <i class="far fa-copy"></i> Kopyala
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Bakiye -->
+                    <div class="tab-pane fade" id="wallet" role="tabpanel" aria-labelledby="wallet-tab">
+                      <div class="text-center p-4">
+                        <h5 class="mb-4">Mevcut Bakiyeniz</h5>
+                        <h3 class="mb-4 text-success fw-bold">₺12.500</h3>
+                        <div class="alert alert-warning">
+                          <p class="mb-0">Toplam sipariş tutarı (₺88.995) mevcut bakiyenizden yüksek. Lütfen bakiye yükleyiniz veya başka bir ödeme yöntemi seçiniz.</p>
+                        </div>
+                        <a href="wallet.html" class="btn btn-primary">
+                          <i class="fas fa-wallet me-2"></i> Bakiye Yükle
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Order Summary -->
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-header bg-white py-3">
+            <h5 class="mb-0">Sipariş Özeti</h5>
+          </div>
+          <div class="card-body">
+            <!-- Product Summary -->
+            <div class="mb-3">
+              <p class="fw-bold mb-2">Ürünler (3)</p>
+              
+              <div class="d-flex mb-2">
+                <div class="flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?q=80&w=50&h=50&auto=format&fit=crop" class="rounded" width="50" alt="iPhone 13 Pro">
+                </div>
+                <div class="ms-3 w-100">
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <p class="mb-0 fw-bold">iPhone 13 Pro</p>
+                      <p class="text-muted small mb-0">1 x ₺25.000</p>
+                    </div>
+                    <div>
+                      <p class="text-success mb-0">₺25.000</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="d-flex mb-2">
+                <div class="flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?q=80&w=50&h=50&auto=format&fit=crop" class="rounded" width="50" alt="Samsung Galaxy S22">
+                </div>
+                <div class="ms-3 w-100">
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <p class="mb-0 fw-bold">Samsung Galaxy S22</p>
+                      <p class="text-muted small mb-0">2 x ₺19.999</p>
+                    </div>
+                    <div>
+                      <p class="text-success mb-0">₺39.998</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="d-flex mb-2">
+                <div class="flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1598965402089-897ce52e8355?q=80&w=50&h=50&auto=format&fit=crop" class="rounded" width="50" alt="Xiaomi Redmi Note 11">
+                </div>
+                <div class="ms-3 w-100">
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <p class="mb-0 fw-bold">Xiaomi Redmi Note 11</p>
+                      <p class="text-muted small mb-0">3 x ₺7.999</p>
+                    </div>
+                    <div>
+                      <p class="text-success mb-0">₺23.997</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <hr>
+            
+            <!-- Price Summary -->
+            <div class="d-flex justify-content-between mb-2">
+              <span>Ürünler Toplamı</span>
+              <span class="fw-bold">₺88.995</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>İndirim</span>
+              <span class="fw-bold text-danger">- ₺0</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>KDV (%18)</span>
+              <span class="fw-bold">₺16.019</span>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between mb-4">
+              <span class="fw-bold">Toplam</span>
+              <span class="fw-bold text-success fs-5">₺88.995</span>
+            </div>
+            
+            <!-- Agreement Section -->
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+              <label class="form-check-label small" for="agreeTerms">
+                <a href="#" class="text-decoration-none">Satış sözleşmesini</a> ve <a href="#" class="text-decoration-none">gizlilik politikasını</a> okudum ve kabul ediyorum.
+              </label>
+            </div>
+            
+            <!-- Submit Order Button -->
+            <button type="submit" form="checkoutForm" class="btn btn-primary w-100">
+              <i class="fas fa-lock me-2"></i> Siparişi Tamamla
+            </button>
+          </div>
+        </div>
+        
+        <!-- Cancellation Policy -->
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title"><i class="fas fa-shield-alt me-2 text-primary"></i> Güvenli Alışveriş</h6>
+            <p class="card-text small mb-0">Tüm işlemleriniz 256-bit SSL sertifikası ile şifrelenmektedir. Bilgileriniz kesinlikle 3. şahıslarla paylaşılmaz.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>İletişim</h5>
+          <address class="mb-0">
+            <p><i class="fas fa-map-marker-alt me-2"></i> Merkez Mah. Ticaret Cad. No:123</p>
+            <p><i class="fas fa-phone me-2"></i> (0212) 123 45 67</p>
+            <p><i class="fas fa-envelope me-2"></i> info@toptanciplatform.com</p>
+          </address>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Hızlı Linkler</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white">Ana Sayfa</a></li>
+            <li><a href="products.html" class="text-white">Ürünler</a></li>
+            <li><a href="#" class="text-white">Hakkımızda</a></li>
+            <li><a href="#" class="text-white">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Bültenimize Abone Olun</h5>
+          <p>Yeni ürünlerden ve kampanyalardan haberdar olun.</p>
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="E-posta adresiniz">
+            <button class="btn btn-primary" type="button">Abone Ol</button>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p class="mb-0">&copy; 2023 Cep Telefonu Toptancılığı Platformu. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // İl seçildiğinde ilçeleri güncelle
+      const provinceSelect = document.getElementById('province');
+      const districtSelect = document.getElementById('district');
+      
+      if (provinceSelect && districtSelect) {
+        provinceSelect.addEventListener('change', function() {
+          const province = this.value;
+          
+          // İlçe listesini temizle
+          districtSelect.innerHTML = '';
+          
+          // Seçilen ile göre ilçeleri ekle
+          let districts = [];
+          
+          switch(province) {
+            case 'istanbul':
+              districts = ['Kadıköy', 'Beşiktaş', 'Şişli', 'Üsküdar', 'Beyoğlu'];
+              break;
+            case 'ankara':
+              districts = ['Çankaya', 'Keçiören', 'Mamak', 'Yenimahalle', 'Etimesgut'];
+              break;
+            case 'izmir':
+              districts = ['Konak', 'Karşıyaka', 'Bornova', 'Buca', 'Çiğli'];
+              break;
+            case 'bursa':
+              districts = ['Osmangazi', 'Nilüfer', 'Yıldırım', 'Gemlik', 'İnegöl'];
+              break;
+            case 'antalya':
+              districts = ['Muratpaşa', 'Konyaaltı', 'Kepez', 'Alanya', 'Manavgat'];
+              break;
+            default:
+              districts = [];
+          }
+          
+          // Placeholder option
+          const placeholderOption = document.createElement('option');
+          placeholderOption.value = '';
+          placeholderOption.textContent = 'İlçe seçiniz';
+          placeholderOption.disabled = true;
+          placeholderOption.selected = true;
+          districtSelect.appendChild(placeholderOption);
+          
+          // İlçeleri ekle
+          districts.forEach(district => {
+            const option = document.createElement('option');
+            option.value = district.toLowerCase();
+            option.textContent = district;
+            districtSelect.appendChild(option);
+          });
+        });
+      }
+      
+      // Taksit seçeneklerini göster/gizle
+      const installmentCheckbox = document.getElementById('installment');
+      const installmentOptions = document.querySelector('.installment-options');
+      
+      if (installmentCheckbox && installmentOptions) {
+        installmentCheckbox.addEventListener('change', function() {
+          if (this.checked) {
+            installmentOptions.classList.remove('d-none');
+          } else {
+            installmentOptions.classList.add('d-none');
+          }
+        });
+      }
+      
+      // Ödeme yöntemi değiştiğinde ödeme butonunu güncelle
+      const paymentTabs = document.querySelectorAll('#paymentTabs button');
+      const submitButton = document.querySelector('button[type="submit"]');
+      
+      if (paymentTabs.length > 0 && submitButton) {
+        paymentTabs.forEach(tab => {
+          tab.addEventListener('click', function() {
+            const paymentMethod = this.id.replace('-tab', '');
+            
+            switch(paymentMethod) {
+              case 'credit-card':
+                submitButton.innerHTML = '<i class="fas fa-lock me-2"></i> Şimdi Öde';
+                break;
+              case 'transfer':
+                submitButton.innerHTML = '<i class="fas fa-check-circle me-2"></i> Siparişi Tamamla';
+                break;
+              case 'wallet':
+                submitButton.innerHTML = '<i class="fas fa-wallet me-2"></i> Bakiyeden Öde';
+                break;
+            }
+          });
+        });
+      }
+      
+      // Checkout form submit
+      const checkoutForm = document.getElementById('checkoutForm');
+      if (checkoutForm) {
+        checkoutForm.addEventListener('submit', function(event) {
+          event.preventDefault();
+          
+          const agreeTerms = document.getElementById('agreeTerms');
+          
+          if (!agreeTerms.checked) {
+            alert('Devam etmek için satış sözleşmesini ve gizlilik politikasını kabul etmelisiniz.');
+            return;
+          }
+          
+          // Hangi ödeme yöntemi aktif?
+          const activeTab = document.querySelector('#paymentTabs button.active');
+          const paymentMethod = activeTab.id.replace('-tab', '');
+          
+          if (paymentMethod === 'credit-card') {
+            // Kart bilgileri doğrulama
+            const cardName = document.getElementById('cardName').value;
+            const cardNumber = document.getElementById('cardNumber').value;
+            const cardExpiry = document.getElementById('cardExpiry').value;
+            const cardCvc = document.getElementById('cardCvc').value;
+            
+            if (!cardName || !cardNumber || !cardExpiry || !cardCvc) {
+              alert('Lütfen tüm kart bilgilerini doldurunuz.');
+              return;
+            }
+          } else if (paymentMethod === 'wallet') {
+            // Bakiye kontrolü
+            alert('Bakiyeniz yetersiz! Lütfen bakiye yükleyin veya başka bir ödeme yöntemi seçin.');
+            return;
+          }
+          
+          // Sipariş tamamlama - normalde burada bir API çağrısı olurdu
+          alert('Siparişiniz başarıyla tamamlandı! Teşekkür ederiz.');
+          
+          // Sipariş onay sayfasına yönlendir
+          window.location.href = 'order-confirmation.html';
+        });
+      }
+    });
+    
+    // Panoya kopyalama fonksiyonu
+    function copyToClipboard(elementId) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.select();
+        document.execCommand('copy');
+        
+        // Kopyalama sonrası bildirim
+        const button = element.nextElementSibling;
+        const originalHTML = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-check"></i> Kopyalandı';
+        button.classList.remove('btn-outline-primary');
+        button.classList.add('btn-success');
+        
+        setTimeout(() => {
+          button.innerHTML = originalHTML;
+          button.classList.remove('btn-success');
+          button.classList.add('btn-outline-primary');
+        }, 1500);
+      }
+    }
+  </script>
+</body>
+</html>

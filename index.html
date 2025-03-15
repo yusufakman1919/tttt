@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cep Telefonu Toptancılığı</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Özel CSS -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-smartphone-shop-sale-logo-design-png-image_5069958.jpg" alt="Logo" height="60">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Ana Sayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Ürünler</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="orders.html">Siparişlerim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html">Bakiye</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <a href="login.html" class="btn btn-outline-primary me-2">Giriş</a>
+            <a href="register.html" class="btn btn-primary me-2">Kayıt Ol</a>
+            <div class="dropdown">
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="panelDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user-cog"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="panelDropdown">
+                <li><a class="dropdown-item" href="user-panel.html"><i class="fas fa-user me-2"></i>Kullanıcı Paneli</a></li>
+                <li><a class="dropdown-item" href="admin-panel.html"><i class="fas fa-user-shield me-2"></i>Admin Paneli</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Banner Section -->
+  <section class="banner py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-4 fw-bold">Cep Telefonu Toptancılığı</h1>
+          <p class="lead">En yeni modeller, en uygun fiyatlar ve toptan satış imkanlarıyla sizlere hizmet veriyoruz.</p>
+          <a href="products.html" class="btn btn-primary btn-lg">Ürünleri Keşfet</a>
+        </div>
+        <div class="col-lg-6">
+          <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=80&w=600&h=400&auto=format&fit=crop" alt="Banner Image" class="img-fluid rounded banner-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Kategoriler</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card category-card">
+            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=80&w=350&h=200&auto=format&fit=crop" class="card-img-top category-image" alt="Akıllı Telefonlar">
+            <div class="card-body">
+              <h5 class="card-title">Akıllı Telefonlar</h5>
+              <p class="card-text">En son teknoloji akıllı telefonlar</p>
+              <a href="products.html?category=smartphones" class="btn btn-outline-primary">Görüntüle</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card category-card">
+            <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?q=80&w=350&h=200&auto=format&fit=crop" class="card-img-top category-image" alt="Yenilenmiş Ürünler">
+            <div class="card-body">
+              <h5 class="card-title">Yenilenmiş Ürünler</h5>
+              <p class="card-text">Uygun fiyatlı yenilenmiş cihazlar</p>
+              <a href="products.html?category=refurbished" class="btn btn-outline-primary">Görüntüle</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Öne Çıkan Ürünler</h2>
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="card product-card">
+            <img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?q=80&w=300&h=300&auto=format&fit=crop" class="card-img-top product-image" alt="iPhone 13 Pro">
+            <div class="card-body">
+              <h5 class="card-title">iPhone 13 Pro</h5>
+              <p class="card-text text-success">₺25.000</p>
+              <p class="text-muted small">Stok: 120 adet</p>
+              <div class="d-flex justify-content-between">
+                <div class="color-options">
+                  <span class="color-circle bg-dark"></span>
+                  <span class="color-circle bg-primary"></span>
+                  <span class="color-circle bg-light border"></span>
+                </div>
+                <a href="product-detail.html?id=1" class="btn btn-sm btn-outline-primary">Detaylar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card product-card">
+            <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?q=80&w=300&h=300&auto=format&fit=crop" class="card-img-top product-image" alt="Samsung Galaxy S22">
+            <div class="card-body">
+              <h5 class="card-title">Samsung Galaxy S22</h5>
+              <p class="card-text text-success">₺19.999</p>
+              <p class="text-muted small">Stok: 85 adet</p>
+              <div class="d-flex justify-content-between">
+                <div class="color-options">
+                  <span class="color-circle bg-dark"></span>
+                  <span class="color-circle bg-primary"></span>
+                  <span class="color-circle bg-success"></span>
+                </div>
+                <a href="product-detail.html?id=2" class="btn btn-sm btn-outline-primary">Detaylar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card product-card">
+            <img src="https://images.unsplash.com/photo-1598965402089-897ce52e8355?q=80&w=300&h=300&auto=format&fit=crop" class="card-img-top product-image" alt="Xiaomi Redmi Note 11">
+            <div class="card-body">
+              <h5 class="card-title">Xiaomi Redmi Note 11</h5>
+              <p class="card-text text-success">₺7.999</p>
+              <p class="text-muted small">Stok: 210 adet</p>
+              <div class="d-flex justify-content-between">
+                <div class="color-options">
+                  <span class="color-circle bg-dark"></span>
+                  <span class="color-circle bg-info"></span>
+                </div>
+                <a href="product-detail.html?id=3" class="btn btn-sm btn-outline-primary">Detaylar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card product-card">
+            <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?q=80&w=300&h=300&auto=format&fit=crop" class="card-img-top product-image" alt="Oppo Reno 7">
+            <div class="card-body">
+              <h5 class="card-title">Oppo Reno 7</h5>
+              <p class="card-text text-success">₺9.499</p>
+              <p class="text-muted small">Stok: 65 adet</p>
+              <div class="d-flex justify-content-between">
+                <div class="color-options">
+                  <span class="color-circle bg-dark"></span>
+                  <span class="color-circle bg-warning"></span>
+                </div>
+                <a href="product-detail.html?id=4" class="btn btn-sm btn-outline-primary">Detaylar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>İletişim</h5>
+          <address class="mb-0">
+            <p><i class="fas fa-map-marker-alt me-2"></i> Merkez Mah. Ticaret Cad. No:123</p>
+            <p><i class="fas fa-phone me-2"></i> (0212) 123 45 67</p>
+            <p><i class="fas fa-envelope me-2"></i> info@toptanciplatform.com</p>
+          </address>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Hızlı Linkler</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white">Ana Sayfa</a></li>
+            <li><a href="products.html" class="text-white">Ürünler</a></li>
+            <li><a href="#" class="text-white">Hakkımızda</a></li>
+            <li><a href="#" class="text-white">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Bültenimize Abone Olun</h5>
+          <p>Yeni ürünlerden ve kampanyalardan haberdar olun.</p>
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="E-posta adresiniz">
+            <button class="btn btn-primary" type="button">Abone Ol</button>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p class="mb-0">&copy; 2023 Cep Telefonu Toptancılığı Platformu. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>

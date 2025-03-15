@@ -1,0 +1,793 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ürün Yönetimi - Admin Paneli</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Özel CSS -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="admin-panel.html">
+          <img src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-smartphone-shop-sale-logo-design-png-image_5069958.jpg" alt="Logo" height="60">
+          <span class="ms-2">Admin Paneli</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="admin-panel.html">Gösterge Paneli</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="admin-products.html">Ürün Yönetimi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-orders.html">Sipariş Yönetimi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-users.html">Kullanıcı Yönetimi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-reports.html">Raporlar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin-settings.html">Ayarlar</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <span class="text-white me-3">Admin Kullanıcı</span>
+            <div class="dropdown">
+              <button class="btn btn-outline-light dropdown-toggle" type="button" id="adminDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user-shield me-1"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
+                <li><a class="dropdown-item" href="admin-profile.html"><i class="fas fa-user-cog me-2"></i>Profil</a></li>
+                <li><a class="dropdown-item" href="admin-settings.html"><i class="fas fa-cogs me-2"></i>Ayarlar</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="index.html"><i class="fas fa-sign-out-alt me-2"></i>Çıkış</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container-fluid py-4">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-2 mb-4">
+        <div class="list-group shadow">
+          <a href="admin-panel.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-tachometer-alt me-2"></i> Gösterge Paneli
+          </a>
+          <a href="admin-products.html" class="list-group-item list-group-item-action active">
+            <i class="fas fa-mobile-alt me-2"></i> Ürün Yönetimi
+          </a>
+          <a href="admin-bulk-update.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-file-excel me-2"></i> Toplu Güncelleme
+          </a>
+          <a href="admin-orders.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-shopping-cart me-2"></i> Sipariş Yönetimi
+          </a>
+          <a href="admin-users.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-users me-2"></i> Kullanıcı Yönetimi
+          </a>
+          <a href="admin-reports.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-chart-line me-2"></i> Raporlar
+          </a>
+          <a href="admin-settings.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-cogs me-2"></i> Ayarlar
+          </a>
+          <a href="admin-logs.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-history me-2"></i> Sistem Logları
+          </a>
+          <a href="admin-api.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-plug me-2"></i> API Yönetimi
+          </a>
+          <a href="admin-backup.html" class="list-group-item list-group-item-action">
+            <i class="fas fa-database me-2"></i> Yedekleme
+          </a>
+        </div>
+      </div>
+
+      <!-- Products Content -->
+      <div class="col-lg-10">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2>Ürün Yönetimi</h2>
+          <div>
+            <button class="btn btn-outline-secondary me-2" data-bs-toggle="modal" data-bs-target="#importProductsModal">
+              <i class="fas fa-file-import me-1"></i> İçe Aktar
+            </button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+              <i class="fas fa-plus me-1"></i> Yeni Ürün Ekle
+            </button>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="card mb-4">
+          <div class="card-header bg-white py-3">
+            <h5 class="mb-0">Filtreler</h5>
+          </div>
+          <div class="card-body">
+            <form id="productFilterForm" class="row g-3">
+              <div class="col-md-3">
+                <label for="filterCategory" class="form-label">Kategori</label>
+                <select class="form-select" id="filterCategory">
+                  <option value="" selected>Tümü</option>
+                  <option value="smartphones">Akıllı Telefonlar</option>
+                  <option value="refurbished">Yenilenmiş Ürünler</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label for="filterBrand" class="form-label">Marka</label>
+                <select class="form-select" id="filterBrand">
+                  <option value="" selected>Tümü</option>
+                  <option value="apple">Apple</option>
+                  <option value="samsung">Samsung</option>
+                  <option value="xiaomi">Xiaomi</option>
+                  <option value="oppo">Oppo</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label for="filterStock" class="form-label">Stok Durumu</label>
+                <select class="form-select" id="filterStock">
+                  <option value="" selected>Tümü</option>
+                  <option value="instock">Stokta</option>
+                  <option value="lowstock">Düşük Stok</option>
+                  <option value="outofstock">Tükendi</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label for="filterStatus" class="form-label">Durum</label>
+                <select class="form-select" id="filterStatus">
+                  <option value="" selected>Tümü</option>
+                  <option value="active">Aktif</option>
+                  <option value="passive">Pasif</option>
+                  <option value="pending">Onay Bekliyor</option>
+                </select>
+              </div>
+              <div class="col-md-9">
+                <label for="searchProduct" class="form-label">Ara</label>
+                <input type="text" class="form-control" id="searchProduct" placeholder="Ürün adı, model veya kodu">
+              </div>
+              <div class="col-md-3 d-flex align-items-end">
+                <button type="submit" class="btn btn-primary w-100">
+                  <i class="fas fa-search me-1"></i> Filtrele
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Products Table -->
+        <div class="card mb-4">
+          <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Ürün Listesi</h5>
+            <div class="btn-group">
+              <button class="btn btn-sm btn-outline-secondary">
+                <i class="fas fa-file-excel me-1"></i> Excel
+              </button>
+              <button class="btn btn-sm btn-outline-secondary">
+                <i class="fas fa-file-pdf me-1"></i> PDF
+              </button>
+              <button class="btn btn-sm btn-outline-secondary">
+                <i class="fas fa-print me-1"></i> Yazdır
+              </button>
+            </div>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle">
+                <thead class="table-light">
+                  <tr>
+                    <th>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="selectAllProducts">
+                        <label class="form-check-label" for="selectAllProducts"></label>
+                      </div>
+                    </th>
+                    <th>Ürün</th>
+                    <th>Kategori</th>
+                    <th>SKU</th>
+                    <th>Fiyat</th>
+                    <th>Stok</th>
+                    <th>Durum</th>
+                    <th>İşlemler</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="product1">
+                        <label class="form-check-label" for="product1"></label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img src="https://via.placeholder.com/50x50?text=iPhone" alt="iPhone 13 Pro" class="me-2" width="50">
+                        <div>
+                          <h6 class="mb-0">iPhone 13 Pro</h6>
+                          <small class="text-muted">128GB / Siyah</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Akıllı Telefonlar</td>
+                    <td>IP13P-128-BLK</td>
+                    <td>₺25.000</td>
+                    <td><span class="badge bg-success">125 adet</span></td>
+                    <td><span class="badge bg-primary">Aktif</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-outline-secondary"><i class="fas fa-copy"></i></button>
+                        <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="product2">
+                        <label class="form-check-label" for="product2"></label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img src="https://via.placeholder.com/50x50?text=Samsung" alt="Samsung Galaxy S22" class="me-2" width="50">
+                        <div>
+                          <h6 class="mb-0">Samsung Galaxy S22</h6>
+                          <small class="text-muted">256GB / Beyaz</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Akıllı Telefonlar</td>
+                    <td>SGS22-256-WHT</td>
+                    <td>₺19.999</td>
+                    <td><span class="badge bg-success">85 adet</span></td>
+                    <td><span class="badge bg-primary">Aktif</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-outline-secondary"><i class="fas fa-copy"></i></button>
+                        <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="product3">
+                        <label class="form-check-label" for="product3"></label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img src="https://via.placeholder.com/50x50?text=Xiaomi" alt="Xiaomi Redmi Note 11" class="me-2" width="50">
+                        <div>
+                          <h6 class="mb-0">Xiaomi Redmi Note 11</h6>
+                          <small class="text-muted">64GB / Mavi</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Akıllı Telefonlar</td>
+                    <td>XRN11-64-BLU</td>
+                    <td>₺7.999</td>
+                    <td><span class="badge bg-success">210 adet</span></td>
+                    <td><span class="badge bg-primary">Aktif</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-outline-secondary"><i class="fas fa-copy"></i></button>
+                        <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="product4">
+                        <label class="form-check-label" for="product4"></label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img src="https://via.placeholder.com/50x50?text=Oppo" alt="Oppo Reno 7" class="me-2" width="50">
+                        <div>
+                          <h6 class="mb-0">Oppo Reno 7</h6>
+                          <small class="text-muted">128GB / Turuncu</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Akıllı Telefonlar</td>
+                    <td>OPR7-128-ORG</td>
+                    <td>₺9.499</td>
+                    <td><span class="badge bg-warning text-dark">15 adet</span></td>
+                    <td><span class="badge bg-primary">Aktif</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-outline-secondary"><i class="fas fa-copy"></i></button>
+                        <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="product5">
+                        <label class="form-check-label" for="product5"></label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img src="https://via.placeholder.com/50x50?text=iPhone" alt="iPhone 12" class="me-2" width="50">
+                        <div>
+                          <h6 class="mb-0">iPhone 12</h6>
+                          <small class="text-muted">64GB / Mavi</small>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Akıllı Telefonlar</td>
+                    <td>IP12-64-BLU</td>
+                    <td>₺18.500</td>
+                    <td><span class="badge bg-danger">0 adet</span></td>
+                    <td><span class="badge bg-secondary">Pasif</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-outline-secondary"><i class="fas fa-copy"></i></button>
+                        <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer bg-white py-3">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="btn-group">
+                  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    Toplu İşlemler
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Aktif Yap</a></li>
+                    <li><a class="dropdown-item" href="#">Pasif Yap</a></li>
+                    <li><a class="dropdown-item" href="#">Fiyat Güncelle</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item text-danger" href="#">Sil</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <nav aria-label="Sayfalama">
+                  <ul class="pagination justify-content-end mb-0">
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Önceki</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">Sonraki</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Product Modal -->
+  <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addProductModalLabel">Yeni Ürün Ekle</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body">
+          <form id="addProductForm" class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="productName" class="form-label">Ürün Adı</label>
+                <input type="text" class="form-control" id="productName" required>
+              </div>
+              <div class="col-md-6">
+                <label for="productCategory" class="form-label">Kategori</label>
+                <select class="form-select" id="productCategory" required>
+                  <option value="" selected disabled>Seçiniz</option>
+                  <option value="smartphones">Akıllı Telefonlar</option>
+                  <option value="refurbished">Yenilenmiş Ürünler</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="productBrand" class="form-label">Marka</label>
+                <select class="form-select" id="productBrand" required>
+                  <option value="" selected disabled>Seçiniz</option>
+                  <option value="apple">Apple</option>
+                  <option value="samsung">Samsung</option>
+                  <option value="xiaomi">Xiaomi</option>
+                  <option value="oppo">Oppo</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="productModel" class="form-label">Model</label>
+                <input type="text" class="form-control" id="productModel" required>
+              </div>
+              <div class="col-md-4">
+                <label for="productStorage" class="form-label">Depolama</label>
+                <select class="form-select" id="productStorage" required>
+                  <option value="" selected disabled>Seçiniz</option>
+                  <option value="32">32 GB</option>
+                  <option value="64">64 GB</option>
+                  <option value="128">128 GB</option>
+                  <option value="256">256 GB</option>
+                  <option value="512">512 GB</option>
+                  <option value="1024">1 TB</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="productRam" class="form-label">RAM</label>
+                <select class="form-select" id="productRam" required>
+                  <option value="" selected disabled>Seçiniz</option>
+                  <option value="2">2 GB</option>
+                  <option value="4">4 GB</option>
+                  <option value="6">6 GB</option>
+                  <option value="8">8 GB</option>
+                  <option value="12">12 GB</option>
+                  <option value="16">16 GB</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="productSku" class="form-label">SKU Kodu</label>
+                <input type="text" class="form-control" id="productSku" required>
+              </div>
+              <div class="col-md-6">
+                <label for="productPrice" class="form-label">Referans Fiyat <small class="text-muted">(Opsiyonel)</small></label>
+                <div class="input-group">
+                  <span class="input-group-text">₺</span>
+                  <input type="number" class="form-control" id="productPrice" min="0" step="0.01">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="productStock" class="form-label">Varsayılan Stok <small class="text-muted">(Opsiyonel)</small></label>
+                <input type="number" class="form-control" id="productStock" min="0">
+              </div>
+              <div class="col-12">
+                <label for="productDescription" class="form-label">Açıklama</label>
+                <textarea class="form-control" id="productDescription" rows="3"></textarea>
+              </div>
+              <div class="col-md-12">
+                <label for="productSpecs" class="form-label">Teknik Özellikler</label>
+                <div class="table-responsive border p-3 rounded">
+                  <table class="table table-borderless mb-0" id="specsTable">
+                    <tbody>
+                      <tr>
+                        <td width="30%"><input type="text" class="form-control form-control-sm" placeholder="İşlemci" value="İşlemci"></td>
+                        <td><input type="text" class="form-control form-control-sm" placeholder="Değer"></td>
+                        <td width="40px"><button type="button" class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button></td>
+                      </tr>
+                      <tr>
+                        <td><input type="text" class="form-control form-control-sm" placeholder="Ekran" value="Ekran"></td>
+                        <td><input type="text" class="form-control form-control-sm" placeholder="Değer"></td>
+                        <td><button type="button" class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button></td>
+                      </tr>
+                      <tr>
+                        <td><input type="text" class="form-control form-control-sm" placeholder="Batarya" value="Batarya"></td>
+                        <td><input type="text" class="form-control form-control-sm" placeholder="Değer"></td>
+                        <td><button type="button" class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button type="button" class="btn btn-sm btn-outline-primary mt-2" id="addSpecRow">
+                    <i class="fas fa-plus me-1"></i> Yeni Özellik Ekle
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <label class="form-label">Mevcut Renkler</label>
+                <div class="d-flex flex-wrap gap-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="colorBlack" name="colors[]" value="black">
+                    <label class="form-check-label" for="colorBlack">Siyah</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="colorWhite" name="colors[]" value="white">
+                    <label class="form-check-label" for="colorWhite">Beyaz</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="colorBlue" name="colors[]" value="blue">
+                    <label class="form-check-label" for="colorBlue">Mavi</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="colorRed" name="colors[]" value="red">
+                    <label class="form-check-label" for="colorRed">Kırmızı</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="colorGreen" name="colors[]" value="green">
+                    <label class="form-check-label" for="colorGreen">Yeşil</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="colorGold" name="colors[]" value="gold">
+                    <label class="form-check-label" for="colorGold">Altın</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <label for="productImage" class="form-label">Ürün Görselleri</label>
+                <input type="file" class="form-control" id="productImage" multiple>
+              </div>
+              <div class="col-md-6">
+                <label for="productStatus" class="form-label">Durum</label>
+                <select class="form-select" id="productStatus" required>
+                  <option value="active" selected>Aktif</option>
+                  <option value="passive">Pasif</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+          <button type="submit" form="addProductForm" class="btn btn-primary">Kaydet</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Product Modal -->
+  <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editProductModalLabel">Ürün Düzenle</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editProductForm" class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="editProductName" class="form-label">Ürün Adı</label>
+                <input type="text" class="form-control" id="editProductName" value="iPhone 13 Pro" required>
+              </div>
+              <div class="col-md-6">
+                <label for="editProductCategory" class="form-label">Kategori</label>
+                <select class="form-select" id="editProductCategory" required>
+                  <option value="" disabled>Seçiniz</option>
+                  <option value="smartphones" selected>Akıllı Telefonlar</option>
+                  <option value="refurbished">Yenilenmiş Ürünler</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="editProductBrand" class="form-label">Marka</label>
+                <select class="form-select" id="editProductBrand" required>
+                  <option value="" disabled>Seçiniz</option>
+                  <option value="apple" selected>Apple</option>
+                  <option value="samsung">Samsung</option>
+                  <option value="xiaomi">Xiaomi</option>
+                  <option value="oppo">Oppo</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="editProductModel" class="form-label">Model</label>
+                <input type="text" class="form-control" id="editProductModel" value="13 Pro" required>
+              </div>
+              <div class="col-md-4">
+                <label for="editProductStorage" class="form-label">Depolama</label>
+                <select class="form-select" id="editProductStorage" required>
+                  <option value="" disabled>Seçiniz</option>
+                  <option value="32">32 GB</option>
+                  <option value="64">64 GB</option>
+                  <option value="128" selected>128 GB</option>
+                  <option value="256">256 GB</option>
+                  <option value="512">512 GB</option>
+                  <option value="1024">1 TB</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="editProductRam" class="form-label">RAM</label>
+                <select class="form-select" id="editProductRam" required>
+                  <option value="" disabled>Seçiniz</option>
+                  <option value="2">2 GB</option>
+                  <option value="4">4 GB</option>
+                  <option value="6" selected>6 GB</option>
+                  <option value="8">8 GB</option>
+                  <option value="12">12 GB</option>
+                  <option value="16">16 GB</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="editProductSku" class="form-label">SKU Kodu</label>
+                <input type="text" class="form-control" id="editProductSku" value="IP13P-128-BLK" required>
+              </div>
+              <div class="col-md-6">
+                <label for="editProductPrice" class="form-label">Referans Fiyat <small class="text-muted">(Opsiyonel)</small></label>
+                <div class="input-group">
+                  <span class="input-group-text">₺</span>
+                  <input type="number" class="form-control" id="editProductPrice" min="0" step="0.01" value="25000">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="editProductStock" class="form-label">Varsayılan Stok <small class="text-muted">(Opsiyonel)</small></label>
+                <input type="number" class="form-control" id="editProductStock" min="0" value="0">
+              </div>
+              <div class="col-12">
+                <label for="editProductDescription" class="form-label">Açıklama</label>
+                <textarea class="form-control" id="editProductDescription" rows="3">iPhone 13 Pro, gelişmiş kamera sistemi ve A15 Bionic çip ile en üst düzey performans sunar. Profesyonel fotoğrafçılık ve yüksek performanslı oyun deneyimi için tasarlanmıştır.</textarea>
+              </div>
+              <div class="col-md-12">
+                <label for="editProductSpecs" class="form-label">Teknik Özellikler</label>
+                <div class="table-responsive border p-3 rounded">
+                  <table class="table table-borderless mb-0" id="editSpecsTable">
+                    <tbody>
+                      <tr>
+                        <td width="30%"><input type="text" class="form-control form-control-sm" value="İşlemci"></td>
+                        <td><input type="text" class="form-control form-control-sm" value="A15 Bionic"></td>
+                        <td width="40px"><button type="button" class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button></td>
+                      </tr>
+                      <tr>
+                        <td><input type="text" class="form-control form-control-sm" value="Ekran"></td>
+                        <td><input type="text" class="form-control form-control-sm" value="6.1 inç Super Retina XDR"></td>
+                        <td><button type="button" class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button></td>
+                      </tr>
+                      <tr>
+                        <td><input type="text" class="form-control form-control-sm" value="Batarya"></td>
+                        <td><input type="text" class="form-control form-control-sm" value="3095 mAh"></td>
+                        <td><button type="button" class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button></td>
+                      </tr>
+                      <tr>
+                        <td><input type="text" class="form-control form-control-sm" value="Kamera"></td>
+                        <td><input type="text" class="form-control form-control-sm" value="12MP (f/1.5) + 12MP (f/1.8) + 12MP (f/2.8)"></td>
+                        <td><button type="button" class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button type="button" class="btn btn-sm btn-outline-primary mt-2" id="editAddSpecRow">
+                    <i class="fas fa-plus me-1"></i> Yeni Özellik Ekle
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <label class="form-label">Mevcut Renkler</label>
+                <div class="d-flex flex-wrap gap-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="editColorBlack" name="editColors[]" value="black" checked>
+                    <label class="form-check-label" for="editColorBlack">Siyah</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="editColorWhite" name="editColors[]" value="white" checked>
+                    <label class="form-check-label" for="editColorWhite">Beyaz</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="editColorBlue" name="editColors[]" value="blue">
+                    <label class="form-check-label" for="editColorBlue">Mavi</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="editColorRed" name="editColors[]" value="red">
+                    <label class="form-check-label" for="editColorRed">Kırmızı</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="editColorGreen" name="editColors[]" value="green">
+                    <label class="form-check-label" for="editColorGreen">Yeşil</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="editColorGold" name="editColors[]" value="gold" checked>
+                    <label class="form-check-label" for="editColorGold">Altın</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <label for="editProductImages" class="form-label">Ürün Görselleri</label>
+                <div class="d-flex flex-wrap gap-2 mb-2">
+                  <div class="position-relative">
+                    <img src="https://via.placeholder.com/80x80?text=iPhone" alt="Ürün Görseli" class="img-thumbnail" width="80">
+                    <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0" style="padding: 0 5px; font-size: 10px;">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                  <div class="position-relative">
+                    <img src="https://via.placeholder.com/80x80?text=iPhone2" alt="Ürün Görseli" class="img-thumbnail" width="80">
+                    <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0" style="padding: 0 5px; font-size: 10px;">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <input type="file" class="form-control" id="editProductImages" multiple>
+              </div>
+              <div class="col-md-6">
+                <label for="editProductStatus" class="form-label">Durum</label>
+                <select class="form-select" id="editProductStatus" required>
+                  <option value="active" selected>Aktif</option>
+                  <option value="passive">Pasif</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+          <button type="submit" form="editProductForm" class="btn btn-primary">Kaydet</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Import Products Modal -->
+  <div class="modal fade" id="importProductsModal" tabindex="-1" aria-labelledby="importProductsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="importProductsModalLabel">Ürün İçe Aktar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body">
+          <form id="importProductsForm">
+            <div class="mb-3">
+              <label for="importFile" class="form-label">Excel Dosyası Seçin</label>
+              <input type="file" class="form-control" id="importFile" accept=".xlsx, .xls, .csv" required>
+              <div class="form-text">Desteklenen formatlar: .xlsx, .xls, .csv</div>
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="updateExisting">
+                <label class="form-check-label" for="updateExisting">
+                  Mevcut ürünleri güncelle
+                </label>
+              </div>
+            </div>
+            <div class="alert alert-info">
+              <i class="fas fa-info-circle me-2"></i> Şablon dosyasını indirerek doğru format hakkında bilgi alabilirsiniz.
+              <div class="text-center mt-2">
+                <a href="#" class="btn btn-sm btn-outline-primary">Şablon İndir</a>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+          <button type="submit" form="importProductsForm" class="btn btn-primary">İçe Aktar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2023 Cep Telefonu Toptancılığı Platformu - Admin Paneli</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="mb-0">Versiyon 1.0.0</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>

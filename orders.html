@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siparişlerim - Cep Telefonu Toptancılığı</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Özel CSS -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-smartphone-shop-sale-logo-design-png-image_5069958.jpg" alt="Logo" height="60">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Ana Sayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Ürünler</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="orders.html">Siparişlerim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wallet.html">Bakiye</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <a href="login.html" class="btn btn-outline-primary me-2">Giriş</a>
+            <a href="register.html" class="btn btn-primary">Kayıt Ol</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Orders Section -->
+  <div class="container py-5">
+    <h1 class="mb-4">Siparişlerim</h1>
+    
+    <!-- Order Filter -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <form>
+          <div class="row g-3">
+            <div class="col-md-3">
+              <label for="orderDate" class="form-label">Tarih Aralığı</label>
+              <select class="form-select" id="orderDate">
+                <option value="all">Tümü</option>
+                <option value="last-week">Son 1 Hafta</option>
+                <option value="last-month">Son 1 Ay</option>
+                <option value="last-year">Son 1 Yıl</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="orderStatus" class="form-label">Sipariş Durumu</label>
+              <select class="form-select" id="orderStatus">
+                <option value="all">Tümü</option>
+                <option value="confirmed">Onaylandı</option>
+                <option value="shipped">Kargoda</option>
+                <option value="delivered">Teslim Edildi</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="orderSearch" class="form-label">Arama</label>
+              <input type="text" class="form-control" id="orderSearch" placeholder="Sipariş no, ürün adı...">
+            </div>
+            <div class="col-md-2 d-flex align-items-end">
+              <button type="submit" class="btn btn-primary w-100">Filtrele</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Orders Table (Desktop) -->
+    <div class="order-table-container d-none d-md-block">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Sipariş No</th>
+            <th>Tarih</th>
+            <th>Tutar</th>
+            <th>Durum</th>
+            <th>Ödeme</th>
+            <th>İşlemler</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#87654321</td>
+            <td>20.06.2023</td>
+            <td>₺125.000</td>
+            <td>
+              <span class="badge status-confirmed order-status">
+                <i class="fas fa-check-circle me-1"></i> Onaylandı
+              </span>
+            </td>
+            <td>Havale/EFT</td>
+            <td>
+              <a href="#" class="btn btn-sm btn-outline-primary">Detay</a>
+              <a href="#" class="btn btn-sm btn-outline-secondary">Fatura</a>
+            </td>
+          </tr>
+          <tr>
+            <td>#87654320</td>
+            <td>15.06.2023</td>
+            <td>₺78.500</td>
+            <td>
+              <span class="badge status-shipped order-status">
+                <i class="fas fa-shipping-fast me-1"></i> Kargoda
+              </span>
+            </td>
+            <td>Kredi Kartı</td>
+            <td>
+              <a href="#" class="btn btn-sm btn-outline-primary">Detay</a>
+              <a href="#" class="btn btn-sm btn-outline-secondary">Fatura</a>
+            </td>
+          </tr>
+          <tr>
+            <td>#87654319</td>
+            <td>10.06.2023</td>
+            <td>₺95.000</td>
+            <td>
+              <span class="badge status-delivered order-status">
+                <i class="fas fa-box-open me-1"></i> Teslim Edildi
+              </span>
+            </td>
+            <td>Havale/EFT</td>
+            <td>
+              <a href="#" class="btn btn-sm btn-outline-primary">Detay</a>
+              <a href="#" class="btn btn-sm btn-outline-secondary">Fatura</a>
+            </td>
+          </tr>
+          <tr>
+            <td>#87654318</td>
+            <td>05.06.2023</td>
+            <td>₺42.000</td>
+            <td>
+              <span class="badge status-delivered order-status">
+                <i class="fas fa-box-open me-1"></i> Teslim Edildi
+              </span>
+            </td>
+            <td>Kredi Kartı</td>
+            <td>
+              <a href="#" class="btn btn-sm btn-outline-primary">Detay</a>
+              <a href="#" class="btn btn-sm btn-outline-secondary">Fatura</a>
+            </td>
+          </tr>
+          <tr>
+            <td>#87654317</td>
+            <td>01.06.2023</td>
+            <td>₺67.500</td>
+            <td>
+              <span class="badge status-delivered order-status">
+                <i class="fas fa-box-open me-1"></i> Teslim Edildi
+              </span>
+            </td>
+            <td>Bakiye</td>
+            <td>
+              <a href="#" class="btn btn-sm btn-outline-primary">Detay</a>
+              <a href="#" class="btn btn-sm btn-outline-secondary">Fatura</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Orders Cards (Mobile) -->
+    <div class="d-md-none">
+      <!-- Order Card 1 -->
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="card-title mb-0">#87654321</h5>
+            <span class="badge status-confirmed">
+              <i class="fas fa-check-circle me-1"></i> Onaylandı
+            </span>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Tarih:</div>
+            <div class="col-6">20.06.2023</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Tutar:</div>
+            <div class="col-6">₺125.000</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Ödeme:</div>
+            <div class="col-6">Havale/EFT</div>
+          </div>
+          <div class="d-flex justify-content-between mt-3">
+            <a href="#" class="btn btn-sm btn-outline-primary">Detay</a>
+            <a href="#" class="btn btn-sm btn-outline-secondary">Fatura</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Order Card 2 -->
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="card-title mb-0">#87654320</h5>
+            <span class="badge status-shipped">
+              <i class="fas fa-shipping-fast me-1"></i> Kargoda
+            </span>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Tarih:</div>
+            <div class="col-6">15.06.2023</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Tutar:</div>
+            <div class="col-6">₺78.500</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Ödeme:</div>
+            <div class="col-6">Kredi Kartı</div>
+          </div>
+          <div class="d-flex justify-content-between mt-3">
+            <a href="#" class="btn btn-sm btn-outline-primary">Detay</a>
+            <a href="#" class="btn btn-sm btn-outline-secondary">Fatura</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Order Card 3 -->
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="card-title mb-0">#87654319</h5>
+            <span class="badge status-delivered">
+              <i class="fas fa-box-open me-1"></i> Teslim Edildi
+            </span>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Tarih:</div>
+            <div class="col-6">10.06.2023</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Tutar:</div>
+            <div class="col-6">₺95.000</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Ödeme:</div>
+            <div class="col-6">Havale/EFT</div>
+          </div>
+          <div class="d-flex justify-content-between mt-3">
+            <a href="#" class="btn btn-sm btn-outline-primary">Detay</a>
+            <a href="#" class="btn btn-sm btn-outline-secondary">Fatura</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Order Card 4 -->
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="card-title mb-0">#87654318</h5>
+            <span class="badge status-delivered">
+              <i class="fas fa-box-open me-1"></i> Teslim Edildi
+            </span>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Tarih:</div>
+            <div class="col-6">05.06.2023</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Tutar:</div>
+            <div class="col-6">₺42.000</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Ödeme:</div>
+            <div class="col-6">Kredi Kartı</div>
+          </div>
+          <div class="d-flex justify-content-between mt-3">
+            <a href="#" class="btn btn-sm btn-outline-primary">Detay</a>
+            <a href="#" class="btn btn-sm btn-outline-secondary">Fatura</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Order Card 5 -->
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="card-title mb-0">#87654317</h5>
+            <span class="badge status-delivered">
+              <i class="fas fa-box-open me-1"></i> Teslim Edildi
+            </span>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Tarih:</div>
+            <div class="col-6">01.06.2023</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Tutar:</div>
+            <div class="col-6">₺67.500</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-6 text-muted">Ödeme:</div>
+            <div class="col-6">Bakiye</div>
+          </div>
+          <div class="d-flex justify-content-between mt-3">
+            <a href="#" class="btn btn-sm btn-outline-primary">Detay</a>
+            <a href="#" class="btn btn-sm btn-outline-secondary">Fatura</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Pagination -->
+    <nav class="mt-4">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">Önceki</a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Sonraki</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>İletişim</h5>
+          <address class="mb-0">
+            <p><i class="fas fa-map-marker-alt me-2"></i> Merkez Mah. Ticaret Cad. No:123</p>
+            <p><i class="fas fa-phone me-2"></i> (0212) 123 45 67</p>
+            <p><i class="fas fa-envelope me-2"></i> info@toptanciplatform.com</p>
+          </address>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Hızlı Linkler</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white">Ana Sayfa</a></li>
+            <li><a href="products.html" class="text-white">Ürünler</a></li>
+            <li><a href="#" class="text-white">Hakkımızda</a></li>
+            <li><a href="#" class="text-white">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Bültenimize Abone Olun</h5>
+          <p>Yeni ürünlerden ve kampanyalardan haberdar olun.</p>
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="E-posta adresiniz">
+            <button class="btn btn-primary" type="button">Abone Ol</button>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p class="mb-0">&copy; 2023 Cep Telefonu Toptancılığı Platformu. Tüm hakları saklıdır.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
